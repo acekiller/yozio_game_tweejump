@@ -1,11 +1,21 @@
 #import "AppDelegate.h"
 #import "Game.h"
 #import "Main.h"
+#import "Yozio.h"
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 
+  // Yozio
+ [Yozio configure:@"http://m.snapette.yozio.com"
+           userId:@"MyUserId"
+              env:@"production"
+       appVersion:@"1.0.1"
+ exceptionHandler:NULL];
+
+  
+  
 	[application setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
 
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

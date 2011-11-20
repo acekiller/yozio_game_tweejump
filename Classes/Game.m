@@ -1,6 +1,7 @@
 #import "Game.h"
 #import "Main.h"
 #import "Highscores.h"
+#import "Yozio.h"
 
 @interface Game (Private)
 - (void)initPlatforms;
@@ -19,8 +20,9 @@
 @implementation Game
 
 - (id)init {
-//	NSLog(@"Game::init");
-	
+	NSLog(@"Game::init");
+	[Yozio action:@"Session" context:@"Start" category:@"System"];
+  
 	if(![super init]) return nil;
 	
 	gameSuspended = YES;
@@ -60,8 +62,10 @@
 }
 
 - (void)dealloc {
-//	NSLog(@"Game::dealloc");
-	[super dealloc];
+	NSLog(@"Game::dealloc");
+//	[Yozio action:@"End" context:@"Game" category:@"System"];
+	
+  [super dealloc];
 }
 
 - (void)initPlatforms {
@@ -90,7 +94,8 @@
 }
 
 - (void)startGame {
-//	NSLog(@"startGame");
+	NSLog(@"startGame");
+//	[Yozio action:@"Game" context:@"Start" category:@"System"];
 
 	score = 0;
 	
@@ -104,7 +109,8 @@
 }
 
 - (void)resetPlatforms {
-//	NSLog(@"resetPlatforms");
+	NSLog(@"resetPlatforms");
+//	[Yozio action:@"Game" context:@"Reset Platforms" category:@"System"];
 	
 	currentPlatformY = -1;
 	currentPlatformTag = kPlatformsStartTag;
@@ -145,10 +151,11 @@
 	
 	platform.position = ccp(x,currentPlatformY);
 	platformCount++;
-//	NSLog(@"platformCount = %d",platformCount);
+//	[Yozio funnel:@"Game" value:[NSString stringWithFormat:@"Platform: %d", platformCount] category:@"Game Play"];
 	
 	if(platformCount == currentBonusPlatformIndex) {
-//		NSLog(@"platformCount == currentBonusPlatformIndex");
+		NSLog(@"platformCount == currentBonusPlatformIndex");
+//    [Yozio action:@"Game" context:[NSString stringWithFormat:@"Bonus Platform: %d", platformCount] category:@"System"];
 		AtlasSprite *bonus = (AtlasSprite*)[spriteManager getChildByTag:kBonusStartTag+currentBonusType];
 		bonus.position = ccp(x,currentPlatformY+30);
 		bonus.visible = YES;
@@ -156,7 +163,7 @@
 }
 
 - (void)resetBird {
-//	NSLog(@"resetBird");
+	NSLog(@"resetBird");
 
 	AtlasSpriteManager *spriteManager = (AtlasSpriteManager*)[self getChildByTag:kSpriteManager];
 	AtlasSprite *bird = (AtlasSprite*)[spriteManager getChildByTag:kBird];
@@ -176,7 +183,7 @@
 }
 
 - (void)resetBonus {
-//	NSLog(@"resetBonus");
+	NSLog(@"resetBonus");
 	
 	AtlasSpriteManager *spriteManager = (AtlasSpriteManager*)[self getChildByTag:kSpriteManager];
 	AtlasSprite *bonus = (AtlasSprite*)[spriteManager getChildByTag:kBonusStartTag+currentBonusType];
@@ -333,11 +340,11 @@
 }
 
 - (void)showHighscores {
-//	NSLog(@"showHighscores");
+	NSLog(@"showHighscores");
 	gameSuspended = YES;
 	[[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 	
-//	NSLog(@"score = %d",score);
+	NSLog(@"score = %d",score);
 	Highscores *highscores = [[Highscores alloc] initWithScore:score];
 
 	Scene *scene = [[Scene node] addChild:highscores z:0];

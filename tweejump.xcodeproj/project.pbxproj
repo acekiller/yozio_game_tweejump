@@ -72,6 +72,8 @@
 		4DD043EF0FC9081800897B73 /* TouchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD043BE0FC9081800897B73 /* TouchHandler.m */; };
 		4DD043F00FC9081800897B73 /* Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD043C00FC9081800897B73 /* Transition.m */; };
 		4DD044CA0FC918D300897B73 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD044C90FC918D300897B73 /* Game.m */; };
+		F75B09CD1479AE6C0061699F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75B09CC1479AE6C0061699F /* Security.framework */; };
+		F75B09DC1479B9490061699F /* libYozio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F75B09DA1479B9490061699F /* libYozio.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -201,6 +203,9 @@
 		4DD044C80FC918D300897B73 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		4DD044C90FC918D300897B73 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F75B09CC1479AE6C0061699F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F75B09DA1479B9490061699F /* libYozio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYozio.a; sourceTree = "<group>"; };
+		F75B09DB1479B9490061699F /* Yozio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yozio.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,11 +213,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75B09CD1479AE6C0061699F /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
 				4D0631D60FC3007F008ECEEE /* CoreGraphics.framework in Frameworks */,
+				F75B09DC1479B9490061699F /* libYozio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +252,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F75B09D91479B9490061699F /* Yozio */,
+				F75B09CC1479AE6C0061699F /* Security.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				4D0631D70FC30087008ECEEE /* Images */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -425,6 +434,15 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		F75B09D91479B9490061699F /* Yozio */ = {
+			isa = PBXGroup;
+			children = (
+				F75B09DA1479B9490061699F /* libYozio.a */,
+				F75B09DB1479B9490061699F /* Yozio.h */,
+			);
+			path = Yozio;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -563,6 +581,10 @@
 				GCC_PREFIX_HEADER = tweejump_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Yozio\"",
+				);
 				PRODUCT_NAME = tweejump;
 				PROVISIONING_PROFILE = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
@@ -576,14 +598,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jimmy Tang (AF4XQKPGB8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jimmy Tang (AF4XQKPGB8)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = tweejump_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Yozio\"",
+				);
 				PRODUCT_NAME = tweejump;
 				PROVISIONING_PROFILE = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -617,6 +644,10 @@
 				GCC_PREFIX_HEADER = tweejump_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Yozio\"",
+				);
 				PRODUCT_NAME = tweejump;
 				PROVISIONING_PROFILE = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
 				"PROVISIONING_PROFILE[sdk=iphonesos*]" = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
