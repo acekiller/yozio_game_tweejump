@@ -585,6 +585,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Yozio\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = tweejump;
 				PROVISIONING_PROFILE = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
@@ -608,6 +609,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Yozio\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = tweejump;
 				PROVISIONING_PROFILE = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
@@ -648,6 +650,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Yozio\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = tweejump;
 				PROVISIONING_PROFILE = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
 				"PROVISIONING_PROFILE[sdk=iphonesos*]" = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
