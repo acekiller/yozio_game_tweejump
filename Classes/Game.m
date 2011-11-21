@@ -21,7 +21,6 @@
 
 - (id)init {
 	NSLog(@"Game::init");
-	[Yozio action:@"Session" context:@"Start" category:@"System"];
   
 	if(![super init]) return nil;
 	
@@ -42,8 +41,8 @@
 		bonus.visible = NO;
 	}
 
-//	LabelAtlas *scoreLabel = [LabelAtlas labelAtlasWithString:@"0" charMapFile:@"charmap.png" itemWidth:24 itemHeight:32 startCharMap:' '];
-//	[self addChild:scoreLabel z:5 tag:kScoreLabel];
+    // LabelAtlas *scoreLabel = [LabelAtlas labelAtlasWithString:@"0" charMapFile:@"charmap.png" itemWidth:24 itemHeight:32 startCharMap:' '];
+    // [self addChild:scoreLabel z:5 tag:kScoreLabel];
 	
 	BitmapFontAtlas *scoreLabel = [BitmapFontAtlas bitmapFontAtlasWithString:@"0" fntFile:@"bitmapFont.fnt"];
 	[self addChild:scoreLabel z:5 tag:kScoreLabel];
@@ -63,13 +62,13 @@
 
 - (void)dealloc {
 	NSLog(@"Game::dealloc");
-//	[Yozio action:@"End" context:@"Game" category:@"System"];
+	//[Yozio action:@"End" context:@"Game" category:@"System"];
 	
   [super dealloc];
 }
 
 - (void)initPlatforms {
-//	NSLog(@"initPlatforms");
+	NSLog(@"initPlatforms");
 	
 	currentPlatformTag = kPlatformsStartTag;
 	while(currentPlatformTag < kPlatformsStartTag + kNumPlatforms) {
