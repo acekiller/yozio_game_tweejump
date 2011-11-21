@@ -8,11 +8,18 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 
   // Yozio
- [Yozio configure:@"http://m.snapette.yozio.com"
-           userId:@"MyUserId"
-              env:@"production"
-       appVersion:@"1.0.1"
- exceptionHandler:NULL];
+// [Yozio configure:@"http://m.snapette.yozio.com"
+//           userId:@"MyUserId"
+//              env:@"production"
+//       appVersion:@"1.0.1"
+// exceptionHandler:NULL];
+  
+  // Yozio
+  [Yozio configure:@"http://192.168.1.155"
+            userId:@"MyUserId"
+               env:@"production"
+        appVersion:@"1.0.1"
+  exceptionHandler:NULL];
 
   
   

@@ -1,6 +1,7 @@
 #import "Highscores.h"
 #import "Main.h"
 #import "Game.h"
+#import "Yozio.h"
 
 @interface Highscores (Private)
 - (void)loadCurrentPlayer;
@@ -16,15 +17,16 @@
 @implementation Highscores
 
 - (id)initWithScore:(int)lastScore {
-	NSLog(@"Highscores::init");
+	//NSLog(@"Highscores::init");
+  [Yozio action:@"show" context:@"highscore scene" category:@"user"];
 	
 	if(![super init]) return nil;
 
-	NSLog(@"lastScore = %d",lastScore);
+	//NSLog(@"lastScore = %d",lastScore);
 	
 	currentScore = lastScore;
 
-	NSLog(@"currentScore = %d",currentScore);
+	//NSLog(@"currentScore = %d",currentScore);
 	
 	[self loadCurrentPlayer];
 	[self loadHighscores];
@@ -82,12 +84,13 @@
 
 - (void)dealloc {
 	NSLog(@"Highscores::dealloc");
+  [Yozio action:@"exit" context:@"highscore scene" category:@"user"];
 	[highscores release];
 	[super dealloc];
 }
 
 - (void)loadCurrentPlayer {
-	NSLog(@"loadCurrentPlayer");
+	//NSLog(@"loadCurrentPlayer");
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
@@ -97,7 +100,7 @@
 		currentPlayer = @"anonymous";
 	}
 
-	NSLog(@"currentPlayer = %@",currentPlayer);
+	//NSLog(@"currentPlayer = %@",currentPlayer);
 }
 
 - (void)loadHighscores {
@@ -128,7 +131,7 @@
 }
 
 - (void)updateHighscores {
-	NSLog(@"updateHighscores");
+	//NSLog(@"updateHighscores");
 	
 	currentScorePosition = -1;
 	int count = 0;
@@ -149,8 +152,8 @@
 }
 
 - (void)saveCurrentPlayer {
-	NSLog(@"saveCurrentPlayer");
-	NSLog(@"currentPlayer = %@",currentPlayer);
+	//NSLog(@"saveCurrentPlayer");
+	//NSLog(@"currentPlayer = %@",currentPlayer);
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
@@ -166,7 +169,8 @@
 }
 
 - (void)button1Callback:(id)sender {
-	NSLog(@"button1Callback");
+	NSLog(@"play again");
+  [Yozio action:@"play again" context:@"high score" category:@"settings"];
 
 	Scene *scene = [[Scene node] addChild:[Game node] z:0];
 	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
@@ -174,7 +178,8 @@
 }
 
 - (void)button2Callback:(id)sender {
-	NSLog(@"button2Callback");
+	NSLog(@"update high scores");
+  [Yozio funnel:@"change player name" value:@"view" category:@"high score"];
 	
 	changePlayerAlert = [UIAlertView new];
 	changePlayerAlert.title = @"Change Player";
@@ -199,7 +204,7 @@
 }
 
 - (void)draw {
-	NSLog(@"draw");
+//	NSLog(@"draw");
 
 	if(currentScorePosition < 0) return;
 	
@@ -240,20 +245,22 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	NSLog(@"alertView:clickedButtonAtIndex: %i",buttonIndex);
+	//NSLog(@"alertView:clickedButtonAtIndex: %i",buttonIndex);
 	
 	if(buttonIndex == 0) {
 		[self changePlayerDone];
+    [Yozio funnel:@"change player name" value:@"changed" category:@"high score"];
 	} else {
+    [Yozio funnel:@"change player name" value:@"cancelled" category:@"high score"];
 		// nothing
 	}
 }
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	NSLog(@"textFieldShouldReturn");
-	[changePlayerAlert dismissWithClickedButtonIndex:0 animated:YES];
-	[self changePlayerDone];
-	return YES;
-}
+//
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+//	NSLog(@"textFieldShouldReturn");
+//	[changePlayerAlert dismissWithClickedButtonIndex:0 animated:YES];
+//	[self changePlayerDone];
+//	return YES;
+//}
 
 @end
