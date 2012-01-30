@@ -9,20 +9,14 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-
-  // Yozio
-// [Yozio configure:@"http://m.snapette.yozio.com"
-//           userId:@"MyUserId"
-//              env:@"production"
-//       appVersion:@"1.0.1"
-// exceptionHandler:NULL];
   
   // Yozio
-  [Yozio configure:@"http://192.168.1.104:3000/"
+  [Yozio configure:@"tweejump"
             userId:@"MyUserId"
                env:@"production"
         appVersion:@"1.0.1"
   exceptionHandler:NULL];
+  [Yozio newSession];
 
   
 //  [Apsalar startSession:@"jimmytang" 
