@@ -32,9 +32,9 @@
 
 	[self initPlatforms];
 	
-  // TODO (jimmy): change this to read in from yozio_config from server. make it change to pig.
+  // TODO (jimmy): change this to read in from yozio_config from server. make it change to pig. Always remember to add 10 px to the height for some reason.
 //	AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(608,16,44,32) spriteManager:spriteManager];
-//pig
+//pig 
 	AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(674,6,716-674,58-6) spriteManager:spriteManager];
 	[spriteManager addChild:bird z:4 tag:kBird];
 
