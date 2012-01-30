@@ -32,7 +32,10 @@
 
 	[self initPlatforms];
 	
-	AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(608,16,44,32) spriteManager:spriteManager];
+  // TODO (jimmy): change this to read in from yozio_config from server. make it change to pig.
+//	AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(608,16,44,32) spriteManager:spriteManager];
+//pig
+	AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(674,6,716-674,58-6) spriteManager:spriteManager];
 	[spriteManager addChild:bird z:4 tag:kBird];
 
 	AtlasSprite *bonus;
@@ -336,7 +339,8 @@
 }
 
 - (void)jump {
-	bird_vel.y = 350.0f + fabsf(bird_vel.x);
+	bird_vel.y = 350.0f;
+//  	bird_vel.y = 350.0f + fabsf(bird_vel.x);
 }
 
 - (void)showHighscores {

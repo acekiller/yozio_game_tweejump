@@ -73,7 +73,20 @@
 		4DD043F00FC9081800897B73 /* Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD043C00FC9081800897B73 /* Transition.m */; };
 		4DD044CA0FC918D300897B73 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD044C90FC918D300897B73 /* Game.m */; };
 		F72AEB061479F0B900600121 /* libYozio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F72AEB041479F0B900600121 /* libYozio.a */; };
+		F74F74041483191200B6CFED /* libApsalar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F74F74031483191200B6CFED /* libApsalar.a */; };
+		F74F74071483195000B6CFED /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F74F74061483195000B6CFED /* libsqlite3.0.dylib */; };
+		F74F74091483195B00B6CFED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74F74081483195B00B6CFED /* SystemConfiguration.framework */; };
 		F75B09CD1479AE6C0061699F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75B09CC1479AE6C0061699F /* Security.framework */; };
+		F7F8714B14D61ADA00BEA775 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F8714A14D61ADA00BEA775 /* AudioToolbox.framework */; };
+		F7F8715414D61BEE00BEA775 /* Recording.data in Resources */ = {isa = PBXBuildFile; fileRef = F7F8715114D61BEE00BEA775 /* Recording.data */; };
+		F7F8715514D61BEE00BEA775 /* Select.caf in Resources */ = {isa = PBXBuildFile; fileRef = F7F8715214D61BEE00BEA775 /* Select.caf */; };
+		F7F8715614D61BEE00BEA775 /* Erase.caf in Resources */ = {isa = PBXBuildFile; fileRef = F7F8715314D61BEE00BEA775 /* Erase.caf */; };
+		F7F8715914D61FF000BEA775 /* PaintingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F8715814D61FF000BEA775 /* PaintingWindow.m */; };
+		F7F8715E14D628B800BEA775 /* bs.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7F8715B14D628B800BEA775 /* bs.mp3 */; };
+		F7F8715F14D628B800BEA775 /* jb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7F8715C14D628B800BEA775 /* jb.mp3 */; };
+		F7F8716414D62A6C00BEA775 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F8716314D62A6C00BEA775 /* AVFoundation.framework */; };
+		F7F8716614D62CCB00BEA775 /* rb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7F8716514D62CCB00BEA775 /* rb.mp3 */; };
+		F7F8716D14D631B100BEA775 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F8716C14D631B100BEA775 /* SoundEffect.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,7 +218,23 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F72AEB041479F0B900600121 /* libYozio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYozio.a; sourceTree = "<group>"; };
 		F72AEB051479F0B900600121 /* Yozio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yozio.h; sourceTree = "<group>"; };
+		F74F74021483191200B6CFED /* Apsalar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apsalar.h; sourceTree = "<group>"; };
+		F74F74031483191200B6CFED /* libApsalar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libApsalar.a; sourceTree = "<group>"; };
+		F74F74061483195000B6CFED /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		F74F74081483195B00B6CFED /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F75B09CC1479AE6C0061699F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F7F8714A14D61ADA00BEA775 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F7F8715114D61BEE00BEA775 /* Recording.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Recording.data; sourceTree = "<group>"; };
+		F7F8715214D61BEE00BEA775 /* Select.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Select.caf; sourceTree = "<group>"; };
+		F7F8715314D61BEE00BEA775 /* Erase.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Erase.caf; sourceTree = "<group>"; };
+		F7F8715714D61FF000BEA775 /* PaintingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingWindow.h; sourceTree = "<group>"; };
+		F7F8715814D61FF000BEA775 /* PaintingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingWindow.m; sourceTree = "<group>"; };
+		F7F8715B14D628B800BEA775 /* bs.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bs.mp3; sourceTree = "<group>"; };
+		F7F8715C14D628B800BEA775 /* jb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jb.mp3; sourceTree = "<group>"; };
+		F7F8716314D62A6C00BEA775 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F7F8716514D62CCB00BEA775 /* rb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rb.mp3; sourceTree = "<group>"; };
+		F7F8716B14D631B100BEA775 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
+		F7F8716C14D631B100BEA775 /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +242,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F8716414D62A6C00BEA775 /* AVFoundation.framework in Frameworks */,
+				F7F8714B14D61ADA00BEA775 /* AudioToolbox.framework in Frameworks */,
+				F74F74091483195B00B6CFED /* SystemConfiguration.framework in Frameworks */,
+				F74F74071483195000B6CFED /* libsqlite3.0.dylib in Frameworks */,
 				F75B09CD1479AE6C0061699F /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -220,6 +253,7 @@
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
 				4D0631D60FC3007F008ECEEE /* CoreGraphics.framework in Frameworks */,
 				F72AEB061479F0B900600121 /* libYozio.a in Frameworks */,
+				F74F74041483191200B6CFED /* libApsalar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +265,11 @@
 			children = (
 				4D0631EA0FC30572008ECEEE /* AppDelegate.h */,
 				4D0631E90FC30572008ECEEE /* AppDelegate.m */,
+				F7F8715714D61FF000BEA775 /* PaintingWindow.h */,
+				F7F8715814D61FF000BEA775 /* PaintingWindow.m */,
 				4D5448260FD48DF30010F348 /* Main.h */,
+				F7F8716B14D631B100BEA775 /* SoundEffect.h */,
+				F7F8716C14D631B100BEA775 /* SoundEffect.m */,
 				4D5448270FD48DF30010F348 /* Main.m */,
 				4DD044C80FC918D300897B73 /* Game.h */,
 				4DD044C90FC918D300897B73 /* Game.m */,
@@ -252,6 +290,11 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F7F8716314D62A6C00BEA775 /* AVFoundation.framework */,
+				F7F8714A14D61ADA00BEA775 /* AudioToolbox.framework */,
+				F74F74081483195B00B6CFED /* SystemConfiguration.framework */,
+				F74F74061483195000B6CFED /* libsqlite3.0.dylib */,
+				F74F74011483191200B6CFED /* Apsalar */,
 				F72AEB031479F0B900600121 /* Yozio */,
 				F75B09CC1479AE6C0061699F /* Security.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -277,7 +320,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7F8716514D62CCB00BEA775 /* rb.mp3 */,
+				F7F8715B14D628B800BEA775 /* bs.mp3 */,
+				F7F8715C14D628B800BEA775 /* jb.mp3 */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				F7F8715114D61BEE00BEA775 /* Recording.data */,
+				F7F8715214D61BEE00BEA775 /* Select.caf */,
+				F7F8715314D61BEE00BEA775 /* Erase.caf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -443,6 +492,15 @@
 			path = Yozio;
 			sourceTree = "<group>";
 		};
+		F74F74011483191200B6CFED /* Apsalar */ = {
+			isa = PBXGroup;
+			children = (
+				F74F74021483191200B6CFED /* Apsalar.h */,
+				F74F74031483191200B6CFED /* libApsalar.a */,
+			);
+			path = Apsalar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -499,6 +557,12 @@
 				4D74D7720FD6B36D00C364B4 /* bitmapFont.png in Resources */,
 				4D857DE10FD740E200B350BA /* icon.png in Resources */,
 				4D5555020FDE56B0004554D7 /* Default.png in Resources */,
+				F7F8715414D61BEE00BEA775 /* Recording.data in Resources */,
+				F7F8715514D61BEE00BEA775 /* Select.caf in Resources */,
+				F7F8715614D61BEE00BEA775 /* Erase.caf in Resources */,
+				F7F8715E14D628B800BEA775 /* bs.mp3 in Resources */,
+				F7F8715F14D628B800BEA775 /* jb.mp3 in Resources */,
+				F7F8716614D62CCB00BEA775 /* rb.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +626,8 @@
 				4DD044CA0FC918D300897B73 /* Game.m in Sources */,
 				4D5448280FD48DF30010F348 /* Main.m in Sources */,
 				4D5449D10FD4D67A0010F348 /* Highscores.m in Sources */,
+				F7F8715914D61FF000BEA775 /* PaintingWindow.m in Sources */,
+				F7F8716D14D631B100BEA775 /* SoundEffect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,12 +650,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Yozio\"",
+					"\"$(SRCROOT)/Apsalar\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = tweejump;
-				PROVISIONING_PROFILE = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -609,12 +674,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Yozio\"",
+					"\"$(SRCROOT)/Apsalar\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = tweejump;
-				PROVISIONING_PROFILE = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -624,14 +688,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jimmy Tang (AF4XQKPGB8)";
 				COMPRESS_PNG_FILES = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-all_load";
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Distribution;
@@ -650,12 +713,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Yozio\"",
+					"\"$(SRCROOT)/Apsalar\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = tweejump;
-				PROVISIONING_PROFILE = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
-				"PROVISIONING_PROFILE[sdk=iphonesos*]" = "EE5FF022-05A1-4336-833B-B8AEF3D3C1E4";
+				PROVISIONING_PROFILE = "426AC4B9-128C-44D9-8825-CAD21634517A";
+				"PROVISIONING_PROFILE[sdk=iphonesos*]" = "426AC4B9-128C-44D9-8825-CAD21634517A";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -665,7 +729,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jimmy Tang (AF4XQKPGB8)";
 				COMPRESS_PNG_FILES = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -673,7 +737,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -682,14 +745,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jimmy Tang (AF4XQKPGB8)";
 				COMPRESS_PNG_FILES = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-all_load";
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
