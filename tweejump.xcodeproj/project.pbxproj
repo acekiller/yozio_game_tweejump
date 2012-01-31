@@ -73,6 +73,14 @@
 		4DD043F00FC9081800897B73 /* Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD043C00FC9081800897B73 /* Transition.m */; };
 		4DD044CA0FC918D300897B73 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD044C90FC918D300897B73 /* Game.m */; };
 		F72AEB061479F0B900600121 /* libYozio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F72AEB041479F0B900600121 /* libYozio.a */; };
+		F738B8D514D7D27D003F9239 /* newt.png in Resources */ = {isa = PBXBuildFile; fileRef = F738B8CE14D7D27D003F9239 /* newt.png */; };
+		F738B8D614D7D27D003F9239 /* obama.png in Resources */ = {isa = PBXBuildFile; fileRef = F738B8CF14D7D27D003F9239 /* obama.png */; };
+		F738B8D714D7D27D003F9239 /* mittromney.png in Resources */ = {isa = PBXBuildFile; fileRef = F738B8D014D7D27D003F9239 /* mittromney.png */; };
+		F738B8D814D7D27D003F9239 /* cuttherope.png in Resources */ = {isa = PBXBuildFile; fileRef = F738B8D114D7D27D003F9239 /* cuttherope.png */; };
+		F738B8D914D7D27D003F9239 /* redbird.png in Resources */ = {isa = PBXBuildFile; fileRef = F738B8D214D7D27D003F9239 /* redbird.png */; };
+		F738B8DA14D7D27D003F9239 /* yellowbird.png in Resources */ = {isa = PBXBuildFile; fileRef = F738B8D314D7D27D003F9239 /* yellowbird.png */; };
+		F738B8DB14D7D27D003F9239 /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = F738B8D414D7D27D003F9239 /* pig.png */; };
+		F738B8DF14D851EA003F9239 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = F738B8DE14D851EA003F9239 /* Bird.m */; };
 		F74F74041483191200B6CFED /* libApsalar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F74F74031483191200B6CFED /* libApsalar.a */; };
 		F74F74071483195000B6CFED /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F74F74061483195000B6CFED /* libsqlite3.0.dylib */; };
 		F74F74091483195B00B6CFED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74F74081483195B00B6CFED /* SystemConfiguration.framework */; };
@@ -87,6 +95,8 @@
 		F7F8716414D62A6C00BEA775 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F8716314D62A6C00BEA775 /* AVFoundation.framework */; };
 		F7F8716614D62CCB00BEA775 /* rb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7F8716514D62CCB00BEA775 /* rb.mp3 */; };
 		F7F8716D14D631B100BEA775 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F8716C14D631B100BEA775 /* SoundEffect.m */; };
+		F7F8716F14D63EEF00BEA775 /* BuyBirds.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F8716E14D63EEF00BEA775 /* BuyBirds.png */; };
+		F7F8717214D63F6300BEA775 /* ItemRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F8717114D63F6200BEA775 /* ItemRecommendation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,6 +228,15 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F72AEB041479F0B900600121 /* libYozio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYozio.a; sourceTree = "<group>"; };
 		F72AEB051479F0B900600121 /* Yozio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yozio.h; sourceTree = "<group>"; };
+		F738B8CE14D7D27D003F9239 /* newt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newt.png; path = Images/newt.png; sourceTree = "<group>"; };
+		F738B8CF14D7D27D003F9239 /* obama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = obama.png; path = Images/obama.png; sourceTree = "<group>"; };
+		F738B8D014D7D27D003F9239 /* mittromney.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mittromney.png; path = Images/mittromney.png; sourceTree = "<group>"; };
+		F738B8D114D7D27D003F9239 /* cuttherope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cuttherope.png; path = Images/cuttherope.png; sourceTree = "<group>"; };
+		F738B8D214D7D27D003F9239 /* redbird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redbird.png; path = Images/redbird.png; sourceTree = "<group>"; };
+		F738B8D314D7D27D003F9239 /* yellowbird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowbird.png; path = Images/yellowbird.png; sourceTree = "<group>"; };
+		F738B8D414D7D27D003F9239 /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pig.png; path = Images/pig.png; sourceTree = "<group>"; };
+		F738B8DD14D851EA003F9239 /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
+		F738B8DE14D851EA003F9239 /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
 		F74F74021483191200B6CFED /* Apsalar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apsalar.h; sourceTree = "<group>"; };
 		F74F74031483191200B6CFED /* libApsalar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libApsalar.a; sourceTree = "<group>"; };
 		F74F74061483195000B6CFED /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -235,6 +254,9 @@
 		F7F8716514D62CCB00BEA775 /* rb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rb.mp3; sourceTree = "<group>"; };
 		F7F8716B14D631B100BEA775 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
 		F7F8716C14D631B100BEA775 /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
+		F7F8716E14D63EEF00BEA775 /* BuyBirds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BuyBirds.png; path = Images/BuyBirds.png; sourceTree = "<group>"; };
+		F7F8717014D63F6200BEA775 /* ItemRecommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemRecommendation.h; sourceTree = "<group>"; };
+		F7F8717114D63F6200BEA775 /* ItemRecommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemRecommendation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +295,10 @@
 				4D5448270FD48DF30010F348 /* Main.m */,
 				4DD044C80FC918D300897B73 /* Game.h */,
 				4DD044C90FC918D300897B73 /* Game.m */,
+				F738B8DD14D851EA003F9239 /* Bird.h */,
+				F738B8DE14D851EA003F9239 /* Bird.m */,
+				F7F8717014D63F6200BEA775 /* ItemRecommendation.h */,
+				F7F8717114D63F6200BEA775 /* ItemRecommendation.m */,
 				4D5449D00FD4D67A0010F348 /* Highscores.h */,
 				4D5449CF0FD4D67A0010F348 /* Highscores.m */,
 			);
@@ -346,6 +372,14 @@
 		4D0631D70FC30087008ECEEE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F738B8CE14D7D27D003F9239 /* newt.png */,
+				F738B8CF14D7D27D003F9239 /* obama.png */,
+				F738B8D014D7D27D003F9239 /* mittromney.png */,
+				F738B8D114D7D27D003F9239 /* cuttherope.png */,
+				F738B8D214D7D27D003F9239 /* redbird.png */,
+				F738B8D314D7D27D003F9239 /* yellowbird.png */,
+				F738B8D414D7D27D003F9239 /* pig.png */,
+				F7F8716E14D63EEF00BEA775 /* BuyBirds.png */,
 				4D2C560B0FCD447F00331A7C /* sprites.png */,
 				4D544A9A0FD4EEFF0010F348 /* playAgainButton.png */,
 				4D544A9B0FD4EEFF0010F348 /* changePlayerButton.png */,
@@ -563,6 +597,14 @@
 				F7F8715E14D628B800BEA775 /* bs.mp3 in Resources */,
 				F7F8715F14D628B800BEA775 /* jb.mp3 in Resources */,
 				F7F8716614D62CCB00BEA775 /* rb.mp3 in Resources */,
+				F7F8716F14D63EEF00BEA775 /* BuyBirds.png in Resources */,
+				F738B8D514D7D27D003F9239 /* newt.png in Resources */,
+				F738B8D614D7D27D003F9239 /* obama.png in Resources */,
+				F738B8D714D7D27D003F9239 /* mittromney.png in Resources */,
+				F738B8D814D7D27D003F9239 /* cuttherope.png in Resources */,
+				F738B8D914D7D27D003F9239 /* redbird.png in Resources */,
+				F738B8DA14D7D27D003F9239 /* yellowbird.png in Resources */,
+				F738B8DB14D7D27D003F9239 /* pig.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +670,8 @@
 				4D5449D10FD4D67A0010F348 /* Highscores.m in Sources */,
 				F7F8715914D61FF000BEA775 /* PaintingWindow.m in Sources */,
 				F7F8716D14D631B100BEA775 /* SoundEffect.m in Sources */,
+				F7F8717214D63F6300BEA775 /* ItemRecommendation.m in Sources */,
+				F738B8DF14D851EA003F9239 /* Bird.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

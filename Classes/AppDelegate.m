@@ -16,11 +16,8 @@
                env:@"production"
         appVersion:@"1.0.1"
   exceptionHandler:NULL];
-  [Yozio newSession];
+//  [Yozio newSession];
 
-  
-//  [Apsalar startSession:@"jimmytang" 
-//                withKey:@"jwJosQVt"];  
   
   
   
@@ -56,6 +53,8 @@
   
   [player play];
 
+  AtlasSprite *flyingObject = [AtlasSprite spriteWithRect:CGRectMake(674,6,716-674,58-6) spriteManager:spriteManager];;
+  
   NSLog(@"loaded sound");
   [erasingSound play];
   // Erase the view when recieving a notification named "shake" from the NSNotificationCenter object
