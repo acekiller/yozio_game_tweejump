@@ -1,6 +1,7 @@
 #import "Highscores.h"
 #import "Main.h"
 #import "Game.h"
+#import "ItemRecommendation.h"
 #import "Yozio.h"
 
 @interface Highscores (Private)
@@ -11,6 +12,7 @@
 - (void)saveHighscores;
 - (void)button1Callback:(id)sender;
 - (void)button2Callback:(id)sender;
+- (void)button3Callback:(id)sender;
 @end
 
 
@@ -66,16 +68,17 @@
 		label3.position = ccp(160,start_y-count*step);
 		
 		count++;
-		if(count == 10) break;
+		if(count == 5) break;
 	}
 
 	MenuItem *button1 = [MenuItemImage itemFromNormalImage:@"playAgainButton.png" selectedImage:@"playAgainButton.png" target:self selector:@selector(button1Callback:)];
-	MenuItem *button2 = [MenuItemImage itemFromNormalImage:@"changePlayerButton.png" selectedImage:@"changePlayerButton.png" target:self selector:@selector(button2Callback:)];
-	
-	Menu *menu = [Menu menuWithItems: button1, button2, nil];
+	MenuItem *button2 = [MenuItemImage itemFromNormalImage:@"BuyBirds.png" selectedImage:@"BuyBirds.png" target:self selector:@selector(button2Callback:)];
+  MenuItem *button3 = [MenuItemImage itemFromNormalImage:@"changePlayerButton.png" selectedImage:@"changePlayerButton.png" target:self selector:@selector(button3Callback:)];
+
+	Menu *menu = [Menu menuWithItems: button1, button2, button3, nil];
 
 	[menu alignItemsVerticallyWithPadding:9];
-	menu.position = ccp(160,58);
+	menu.position = ccp(160,100);
 	
 	[self addChild:menu];
 	
@@ -178,6 +181,15 @@
 }
 
 - (void)button2Callback:(id)sender {
+	NSLog(@"showing item recommendation screen");
+  [Yozio funnel:@"change player name" value:@"view" category:@"high score"];
+	
+	Scene *scene = [[Scene node] addChild:[ItemRecommendation node] z:0];
+	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
+	[[Director sharedDirector] replaceScene:ts];
+}
+
+- (void)button3Callback:(id)sender {
 	NSLog(@"update high scores");
   [Yozio funnel:@"change player name" value:@"view" category:@"high score"];
 	

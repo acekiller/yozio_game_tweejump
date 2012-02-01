@@ -5,6 +5,7 @@
 #import "Apsalar.h"
 #import "AVFoundation/AVFoundation.h"
 #import "SoundEffect.h"
+#import "Bird.h"
 
 @implementation AppDelegate
 
@@ -53,21 +54,36 @@
   
   [player play];
 
-  AtlasSprite *flyingObject = [AtlasSprite spriteWithRect:CGRectMake(674,6,716-674,58-6) spriteManager:spriteManager];;
+  Bird *myBird = [Bird sharedInstance];
   
+  NSLog(@"bird %@", [myBird getType]);
   NSLog(@"loaded sound");
   [erasingSound play];
   // Erase the view when recieving a notification named "shake" from the NSNotificationCenter object
 	// The "shake" nofification is posted by the PaintingWindow object when user shakes the device
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eraseView) name:@"shake" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeBirdView) name:@"shake" object:nil];
 
 }
 
+- (void)updateBirdAndStartGame:(NSString*)type {
+  NSLog(@"%@ selected", type);
+  NSLog(@"Setting bird type from %@ to %@", [[Bird sharedInstance] getType], type);
+  Bird *bird = [Bird sharedInstance];
+  [bird setType:type];
+//	Scene *scene = [[Scene node] addChild:[Game node] z:0];
+//	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
+//	[[Director sharedDirector] replaceScene:ts];
+}
+
 // Called when receiving the "shake" notification; plays the erase sound and redraws the view
--(void) eraseView
+-(void) changeBirdView
 {
   NSLog(@"SHAKE");
-		[erasingSound play];
+  [erasingSound play];
+  NSArray *birdTypes = [NSArray arrayWithObjects:@"pig", @"newt", @"yellowbird", @"redbird", @"cuttherope", @"obama", @"mittromney", nil];
+  int i = random()%birdTypes.count;
+  NSString *type = [birdTypes objectAtIndex:i];
+  [self updateBirdAndStartGame:type];
 }
 
 

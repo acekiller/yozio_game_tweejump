@@ -249,6 +249,8 @@
 -(id) addChild: (CocosNode*) child z:(int)z tag:(int) aTag
 {	
 	NSAssert( child != nil, @"Argument must be non-nil");
+  NSLog(@"parent %@", child.parent);
+  child.parent = nil;
 	NSAssert( child.parent == nil, @"child already added. It can't be added again");
 	
 	if( ! children )

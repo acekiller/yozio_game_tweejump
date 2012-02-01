@@ -2,7 +2,7 @@
 #import "Main.h"
 #import "Highscores.h"
 #import "Yozio.h"
-
+#import "Bird.h"
 @interface Game (Private)
 - (void)initPlatforms;
 - (void)initPlatform;
@@ -35,8 +35,41 @@
   // TODO (jimmy): change this to read in from yozio_config from server. make it change to pig. Always remember to add 10 px to the height for some reason.
 //	AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(608,16,44,32) spriteManager:spriteManager];
 //pig 
-	AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(674,6,716-674,58-6) spriteManager:spriteManager];
-	[spriteManager addChild:bird z:4 tag:kBird];
+  Bird *birdType = [Bird sharedInstance];
+  NSLog(@"birdtype %@", [birdType getType]);
+  if ( [birdType getType] == @"pig") { 
+    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(674,6,716-674,58-6) spriteManager:spriteManager]; 
+    NSLog(@"bird.parent %@", bird.parent);
+    [spriteManager addChild:bird z:4 tag:kBird];
+  } else if ([birdType getType] == @"newt"){
+    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(861,55,902-861,115-65) spriteManager:spriteManager];
+    NSLog(@"bird.parent %@", bird.parent);
+    [spriteManager addChild:bird z:4 tag:kBird];
+  } else if ([birdType getType] == @"obama"){
+    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(795,57,828-795,120-65) spriteManager:spriteManager];
+    NSLog(@"bird.parent %@", bird.parent);
+    [spriteManager addChild:bird z:4 tag:kBird];
+  } else if ([birdType getType] == @"mittromney"){
+    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(730,57,767-730,120-65) spriteManager:spriteManager];
+    NSLog(@"bird.parent %@", bird.parent);
+    [spriteManager addChild:bird z:4 tag:kBird];
+  } else if ([birdType getType] == @"cuttherope"){
+    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(862,16,905-862,70-16) spriteManager:spriteManager];
+    NSLog(@"bird.parent %@", bird.parent);
+    [spriteManager addChild:bird z:4 tag:kBird];
+  } else if ([birdType getType] == @"redbird"){
+    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(795,16,840-795,65-15) spriteManager:spriteManager];
+    NSLog(@"bird.parent %@", bird.parent);
+    [spriteManager addChild:bird z:4 tag:kBird];
+  } else if ([birdType getType] == @"yellowbird"){
+    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(735,16,770-735,60-15) spriteManager:spriteManager];
+    NSLog(@"bird.parent %@", bird.parent);
+    [spriteManager addChild:bird z:4 tag:kBird];
+  } else {
+    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(608,16,44,32) spriteManager:spriteManager];
+    NSLog(@"bird.parent %@", bird.parent);
+    [spriteManager addChild:bird z:4 tag:kBird];
+  }
 
 	AtlasSprite *bonus;
 
