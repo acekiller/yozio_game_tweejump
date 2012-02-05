@@ -10,11 +10,14 @@
 
 @interface Bird : NSObject {
 	NSString *type;
+	NSString *music;
 }
 
 + (Bird *) sharedInstance;
 
 - (NSString*) getType;
 - (void) setType:(NSString*)newVal;
+- (NSString*) getMusic;
+- (void) setMusic:(NSString*)newVal;
 
 @end

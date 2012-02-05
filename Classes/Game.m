@@ -3,6 +3,8 @@
 #import "Highscores.h"
 #import "Yozio.h"
 #import "Bird.h"
+#import "AppDelegate.h"
+
 @interface Game (Private)
 - (void)initPlatforms;
 - (void)initPlatform;
@@ -86,6 +88,18 @@
 	[self addChild:scoreLabel z:5 tag:kScoreLabel];
 	scoreLabel.position = ccp(160,430);
 
+  // setup bg music
+  Bird *myBird = [Bird sharedInstance];
+  NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:[myBird getMusic] ofType:@"mp3"];
+  NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+  AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+  appDelegate->player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+  appDelegate->player.numberOfLoops = -1; //infinite = -1
+  [appDelegate->player play];
+
+  
+  
 	[self schedule:@selector(step:)];
 	
 	isTouchEnabled = NO;

@@ -5,11 +5,13 @@
 
 @interface AppDelegate : NSObject <UIApplicationDelegate, UIAccelerometerDelegate>
 {
+  @public
 	PaintingWindow *window;
 
   SoundEffect			*erasingSound;
   SoundEffect			*bs;
 	SoundEffect			*selectSound;
   AVAudioPlayer   *player;
+
 }
 @end

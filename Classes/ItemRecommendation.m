@@ -34,13 +34,13 @@
   title.position =  ccp(100, 0);
   [self addChild: title];
   
-  MenuItem *button1 = [MenuItemImage itemFromNormalImage:@"newt.png" selectedImage:@"newt.png" target:self selector:@selector(button1Callback:)];
-  MenuItem *button2 = [MenuItemImage itemFromNormalImage:@"obama.png" selectedImage:@"obama.png" target:self selector:@selector(button2Callback:)];
-  MenuItem *button3 = [MenuItemImage itemFromNormalImage:@"mittromney.png" selectedImage:@"mittromney.png" target:self selector:@selector(button3Callback:)];
-  MenuItem *button4 = [MenuItemImage itemFromNormalImage:@"cuttherope.png" selectedImage:@"cuttherope.png" target:self selector:@selector(button4Callback:)];
-  MenuItem *button5 = [MenuItemImage itemFromNormalImage:@"redbird.png" selectedImage:@"redbird.png" target:self selector:@selector(button5Callback:)];
-  MenuItem *button6 = [MenuItemImage itemFromNormalImage:@"yellowbird.png" selectedImage:@"yellowbird.png" target:self selector:@selector(button6Callback:)];
-  MenuItem *button7 = [MenuItemImage itemFromNormalImage:@"pig.png" selectedImage:@"pig.png" target:self selector:@selector(button7Callback:)];
+  MenuItem *button1 = [MenuItemImage itemFromNormalImage:@"newt-menu.png" selectedImage:@"newt-menu.png" target:self selector:@selector(button1Callback:)];
+  MenuItem *button2 = [MenuItemImage itemFromNormalImage:@"obama-menu.png" selectedImage:@"obama-menu.png" target:self selector:@selector(button2Callback:)];
+  MenuItem *button3 = [MenuItemImage itemFromNormalImage:@"mittromney-menu.png" selectedImage:@"mittromney-menu.png" target:self selector:@selector(button3Callback:)];
+  MenuItem *button4 = [MenuItemImage itemFromNormalImage:@"cuttherope-menu.png" selectedImage:@"cuttherope-menu.png" target:self selector:@selector(button4Callback:)];
+  MenuItem *button5 = [MenuItemImage itemFromNormalImage:@"redbird-menu.png" selectedImage:@"redbird-menu.png" target:self selector:@selector(button5Callback:)];
+  MenuItem *button6 = [MenuItemImage itemFromNormalImage:@"yellowbird-menu.png" selectedImage:@"yellowbird-menu.png" target:self selector:@selector(button6Callback:)];
+  MenuItem *button7 = [MenuItemImage itemFromNormalImage:@"pig-menu.png" selectedImage:@"pig-menu.png" target:self selector:@selector(button7Callback:)];
   NSLog(@"3");
   NSMutableArray *buttons = [[NSMutableArray alloc] initWithObjects:button1, button2, button3, button4, button5, button6, button7, nil];
   for(int i=0;i<10;i++){
@@ -48,7 +48,8 @@
     int b = random()%buttons.count;
     [buttons exchangeObjectAtIndex:a withObjectAtIndex:b];
   }
-	Menu *menu = [Menu menuWithItems: [buttons objectAtIndex:0], [buttons objectAtIndex:1], [buttons objectAtIndex:2], [buttons objectAtIndex:3], [buttons objectAtIndex:4], [buttons objectAtIndex:5], [buttons objectAtIndex:6], nil];
+  MenuItem *backButton = [MenuItemImage itemFromNormalImage:@"backButton.png" selectedImage:@"backButton.png" target:self selector:@selector(backButtonCallback:)];
+	Menu *menu = [Menu menuWithItems: [buttons objectAtIndex:0], [buttons objectAtIndex:1], [buttons objectAtIndex:2], [buttons objectAtIndex:3], [buttons objectAtIndex:4], [buttons objectAtIndex:5], [buttons objectAtIndex:6], backButton, nil];
 
   NSLog(@"4");
 	[menu alignItemsVerticallyWithPadding:9];
@@ -70,9 +71,9 @@
   NSLog(@"Setting bird type from %@ to %@", [[Bird sharedInstance] getType], type);
   Bird *bird = [Bird sharedInstance];
   [bird setType:type];
-	Scene *scene = [[Scene node] addChild:[Game node] z:0];
-	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
-	[[Director sharedDirector] replaceScene:ts];
+  Highscores *h = [[Highscores alloc] initWithScore:0];
+  Scene *scene = [[Scene node] addChild:h z:0];
+  [[Director sharedDirector] replaceScene:[FadeTransition transitionWithDuration:1 scene:scene withColorRGB:0xffffff]];
 }
 
 - (void)button1Callback:(id)sender {
@@ -102,6 +103,11 @@
 - (void)button7Callback:(id)sender {
   NSString *type = @"pig";
   [self updateBirdAndStartGame:type];
+}
+- (void)backButtonCallback:(id)sender {
+  Highscores *h = [[Highscores alloc] initWithScore:0];
+  Scene *scene = [[Scene node] addChild:h z:0];
+  [[Director sharedDirector] replaceScene:[FadeTransition transitionWithDuration:1 scene:scene withColorRGB:0xffffff]];
 }
 
 

@@ -81,6 +81,15 @@
 		F738B8DA14D7D27D003F9239 /* yellowbird.png in Resources */ = {isa = PBXBuildFile; fileRef = F738B8D314D7D27D003F9239 /* yellowbird.png */; };
 		F738B8DB14D7D27D003F9239 /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = F738B8D414D7D27D003F9239 /* pig.png */; };
 		F738B8DF14D851EA003F9239 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = F738B8DE14D851EA003F9239 /* Bird.m */; };
+		F73B224014DE04290026B6C6 /* cuttherope-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B223814DE04290026B6C6 /* cuttherope-menu.png */; };
+		F73B224114DE04290026B6C6 /* mittromney-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B223914DE04290026B6C6 /* mittromney-menu.png */; };
+		F73B224214DE04290026B6C6 /* newt-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B223A14DE04290026B6C6 /* newt-menu.png */; };
+		F73B224314DE04290026B6C6 /* obama-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B223B14DE04290026B6C6 /* obama-menu.png */; };
+		F73B224414DE04290026B6C6 /* pig-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B223C14DE04290026B6C6 /* pig-menu.png */; };
+		F73B224514DE04290026B6C6 /* redbird-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B223D14DE04290026B6C6 /* redbird-menu.png */; };
+		F73B224614DE04290026B6C6 /* twitter-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B223E14DE04290026B6C6 /* twitter-menu.png */; };
+		F73B224714DE04290026B6C6 /* yellowbird-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B223F14DE04290026B6C6 /* yellowbird-menu.png */; };
+		F73B224A14DE065A0026B6C6 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B224914DE065A0026B6C6 /* backButton.png */; };
 		F74F74041483191200B6CFED /* libApsalar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F74F74031483191200B6CFED /* libApsalar.a */; };
 		F74F74071483195000B6CFED /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F74F74061483195000B6CFED /* libsqlite3.0.dylib */; };
 		F74F74091483195B00B6CFED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74F74081483195B00B6CFED /* SystemConfiguration.framework */; };
@@ -97,6 +106,7 @@
 		F7F8716D14D631B100BEA775 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F8716C14D631B100BEA775 /* SoundEffect.m */; };
 		F7F8716F14D63EEF00BEA775 /* BuyBirds.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F8716E14D63EEF00BEA775 /* BuyBirds.png */; };
 		F7F8717214D63F6300BEA775 /* ItemRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F8717114D63F6200BEA775 /* ItemRecommendation.m */; };
+		F7FAA49814DDDAF9004F8D5A /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = F7FAA49714DDDAF9004F8D5A /* twitter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,6 +247,15 @@
 		F738B8D414D7D27D003F9239 /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pig.png; path = Images/pig.png; sourceTree = "<group>"; };
 		F738B8DD14D851EA003F9239 /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
 		F738B8DE14D851EA003F9239 /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
+		F73B223814DE04290026B6C6 /* cuttherope-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cuttherope-menu.png"; path = "Images/cuttherope-menu.png"; sourceTree = "<group>"; };
+		F73B223914DE04290026B6C6 /* mittromney-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mittromney-menu.png"; path = "Images/mittromney-menu.png"; sourceTree = "<group>"; };
+		F73B223A14DE04290026B6C6 /* newt-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "newt-menu.png"; path = "Images/newt-menu.png"; sourceTree = "<group>"; };
+		F73B223B14DE04290026B6C6 /* obama-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "obama-menu.png"; path = "Images/obama-menu.png"; sourceTree = "<group>"; };
+		F73B223C14DE04290026B6C6 /* pig-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pig-menu.png"; path = "Images/pig-menu.png"; sourceTree = "<group>"; };
+		F73B223D14DE04290026B6C6 /* redbird-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "redbird-menu.png"; path = "Images/redbird-menu.png"; sourceTree = "<group>"; };
+		F73B223E14DE04290026B6C6 /* twitter-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "twitter-menu.png"; path = "Images/twitter-menu.png"; sourceTree = "<group>"; };
+		F73B223F14DE04290026B6C6 /* yellowbird-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "yellowbird-menu.png"; path = "Images/yellowbird-menu.png"; sourceTree = "<group>"; };
+		F73B224914DE065A0026B6C6 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButton.png; path = Images/backButton.png; sourceTree = "<group>"; };
 		F74F74021483191200B6CFED /* Apsalar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apsalar.h; sourceTree = "<group>"; };
 		F74F74031483191200B6CFED /* libApsalar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libApsalar.a; sourceTree = "<group>"; };
 		F74F74061483195000B6CFED /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -257,6 +276,7 @@
 		F7F8716E14D63EEF00BEA775 /* BuyBirds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BuyBirds.png; path = Images/BuyBirds.png; sourceTree = "<group>"; };
 		F7F8717014D63F6200BEA775 /* ItemRecommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemRecommendation.h; sourceTree = "<group>"; };
 		F7F8717114D63F6200BEA775 /* ItemRecommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemRecommendation.m; sourceTree = "<group>"; };
+		F7FAA49714DDDAF9004F8D5A /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitter.png; path = Images/twitter.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +392,16 @@
 		4D0631D70FC30087008ECEEE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F73B224914DE065A0026B6C6 /* backButton.png */,
+				F73B223814DE04290026B6C6 /* cuttherope-menu.png */,
+				F73B223914DE04290026B6C6 /* mittromney-menu.png */,
+				F73B223A14DE04290026B6C6 /* newt-menu.png */,
+				F73B223B14DE04290026B6C6 /* obama-menu.png */,
+				F73B223C14DE04290026B6C6 /* pig-menu.png */,
+				F73B223D14DE04290026B6C6 /* redbird-menu.png */,
+				F73B223E14DE04290026B6C6 /* twitter-menu.png */,
+				F73B223F14DE04290026B6C6 /* yellowbird-menu.png */,
+				F7FAA49714DDDAF9004F8D5A /* twitter.png */,
 				F738B8CE14D7D27D003F9239 /* newt.png */,
 				F738B8CF14D7D27D003F9239 /* obama.png */,
 				F738B8D014D7D27D003F9239 /* mittromney.png */,
@@ -605,6 +635,16 @@
 				F738B8D914D7D27D003F9239 /* redbird.png in Resources */,
 				F738B8DA14D7D27D003F9239 /* yellowbird.png in Resources */,
 				F738B8DB14D7D27D003F9239 /* pig.png in Resources */,
+				F7FAA49814DDDAF9004F8D5A /* twitter.png in Resources */,
+				F73B224014DE04290026B6C6 /* cuttherope-menu.png in Resources */,
+				F73B224114DE04290026B6C6 /* mittromney-menu.png in Resources */,
+				F73B224214DE04290026B6C6 /* newt-menu.png in Resources */,
+				F73B224314DE04290026B6C6 /* obama-menu.png in Resources */,
+				F73B224414DE04290026B6C6 /* pig-menu.png in Resources */,
+				F73B224514DE04290026B6C6 /* redbird-menu.png in Resources */,
+				F73B224614DE04290026B6C6 /* twitter-menu.png in Resources */,
+				F73B224714DE04290026B6C6 /* yellowbird-menu.png in Resources */,
+				F73B224A14DE065A0026B6C6 /* backButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

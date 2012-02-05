@@ -6,7 +6,7 @@
 #import "AVFoundation/AVFoundation.h"
 #import "SoundEffect.h"
 #import "Bird.h"
-
+#import "Highscores.h"
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
@@ -43,25 +43,13 @@
   NSBundle *mainBundle = [NSBundle mainBundle];	
 	erasingSound =  [[SoundEffect alloc] initWithContentsOfFile:[mainBundle pathForResource:@"Erase" ofType:@"caf"]];
 
-//  bs = [[SoundEffect alloc] initWithContentsOfFile:[mainBundle pathForResource:@"bs" ofType:@"mp3"]];
-//  [bs play];
-//  
-  
-  NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"bs" ofType:@"mp3"];
-  NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-  AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-  player.numberOfLoops = -1; //infinite
-  
-  [player play];
-
+  // setup sound
   Bird *myBird = [Bird sharedInstance];
   
+  
   NSLog(@"bird %@", [myBird getType]);
-  NSLog(@"loaded sound");
+  NSLog(@"loaded sound, %@", [myBird getMusic]);
   [erasingSound play];
-  // Erase the view when recieving a notification named "shake" from the NSNotificationCenter object
-	// The "shake" nofification is posted by the PaintingWindow object when user shakes the device
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeBirdView) name:@"shake" object:nil];
 
 }
 
@@ -70,6 +58,12 @@
   NSLog(@"Setting bird type from %@ to %@", [[Bird sharedInstance] getType], type);
   Bird *bird = [Bird sharedInstance];
   [bird setType:type];
+  NSLog(@"%@", [Scene node]);
+  NSLog(@"%@", [Game node]);
+  NSLog(@"%@", [Director sharedDirector]);
+  NSLog(@"%@", [[Director sharedDirector] runningScene]);
+  NSLog(@"%@" ,[Highscores class]);
+  NSLog(@"%@", [[[Director sharedDirector] runningScene] isKindOfClass:[Highscores class]]);
 //	Scene *scene = [[Scene node] addChild:[Game node] z:0];
 //	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
 //	[[Director sharedDirector] replaceScene:ts];

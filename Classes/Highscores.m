@@ -3,6 +3,9 @@
 #import "Game.h"
 #import "ItemRecommendation.h"
 #import "Yozio.h"
+#import "SoundEffect.h"
+#import "Bird.h"
+#import "AppDelegate.h"
 
 @interface Highscores (Private)
 - (void)loadCurrentPlayer;
@@ -24,6 +27,9 @@
 	
 	if(![super init]) return nil;
 
+  AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+  
+  [appDelegate->player stop];
 	//NSLog(@"lastScore = %d",lastScore);
 	
 	currentScore = lastScore;
@@ -71,19 +77,61 @@
 		if(count == 5) break;
 	}
 
+  NSLog(@"%@", [NSString stringWithFormat: @"%@.png", [[Bird sharedInstance] getType]]);
+	MenuItem *button0 = [MenuItemImage itemFromNormalImage:[NSString stringWithFormat: @"%@.png", [[Bird sharedInstance] getType]] selectedImage:@"playAgainButton.png" target:self selector:@selector(button0Callback:)];
 	MenuItem *button1 = [MenuItemImage itemFromNormalImage:@"playAgainButton.png" selectedImage:@"playAgainButton.png" target:self selector:@selector(button1Callback:)];
 	MenuItem *button2 = [MenuItemImage itemFromNormalImage:@"BuyBirds.png" selectedImage:@"BuyBirds.png" target:self selector:@selector(button2Callback:)];
   MenuItem *button3 = [MenuItemImage itemFromNormalImage:@"changePlayerButton.png" selectedImage:@"changePlayerButton.png" target:self selector:@selector(button3Callback:)];
 
-	Menu *menu = [Menu menuWithItems: button1, button2, button3, nil];
+	Menu *menu = [Menu menuWithItems: button0, button1, button2, button3, nil];
 
 	[menu alignItemsVerticallyWithPadding:9];
 	menu.position = ccp(160,100);
 	
 	[self addChild:menu];
-	
+  // Erase the view when recieving a notification named "shake" from the NSNotificationCenter object
+	// The "shake" nofification is posted by the PaintingWindow object when user shakes the device
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeBirdView) name:@"shake" object:nil];
+
 	return self;
 }
+
+- (void)updateBirdAndStartGame:(NSString*)type music:(NSString*)music {
+  NSLog(@"%@ selected", type);
+  NSLog(@"Setting bird type from %@ to %@", [[Bird sharedInstance] getType], type);
+  Bird *bird = [Bird sharedInstance];
+  [bird setType:type];
+  [bird setMusic:music];
+  NSLog(@"%@", [Scene node]);
+  NSLog(@"%@", [Game node]);
+  NSLog(@"%@", [Director sharedDirector]);
+  NSLog(@"%@", [[Director sharedDirector] runningScene]);
+  NSLog(@"%@" ,[Highscores class]);
+  NSLog(@"%@", [[[Director sharedDirector] runningScene] isKindOfClass:[Highscores class]]);
+  Highscores *h = [[Highscores alloc] initWithScore:currentScore];
+  Scene *scene = [[Scene node] addChild:h z:0];
+  [[Director sharedDirector] replaceScene:[FadeTransition transitionWithDuration:1 scene:scene withColorRGB:0xffffff]];
+}
+
+// Called when receiving the "shake" notification; plays the erase sound and redraws the view
+-(void) changeBirdView
+{
+  NSBundle *mainBundle = [NSBundle mainBundle];	
+	SoundEffect *erasingSound =  [[SoundEffect alloc] initWithContentsOfFile:[mainBundle pathForResource:@"Erase" ofType:@"caf"]];
+  NSLog(@"SHAKE");
+  [erasingSound play];
+  NSArray *birdTypes = [NSArray arrayWithObjects:@"pig", @"newt", @"yellowbird", @"redbird", @"cuttherope", @"obama", @"mittromney", nil];
+  int i = random()%birdTypes.count;
+  NSString *type = [birdTypes objectAtIndex:i];
+  NSArray *birdMusics = [NSArray arrayWithObjects:@"bs", @"jb", @"rb", nil];
+  int j = random()%birdMusics.count;
+  NSString *music = [birdMusics objectAtIndex:j];
+  NSLog(@"music seletec: %@", music);
+  [self updateBirdAndStartGame:type music:music];
+
+}
+
+
 
 - (void)dealloc {
 	NSLog(@"Highscores::dealloc");
@@ -171,10 +219,13 @@
 	[defaults setObject:highscores forKey:@"highscores"];
 }
 
+- (void)button0Callback:(id)sender {
+}
+
 - (void)button1Callback:(id)sender {
 	NSLog(@"play again");
   [Yozio action:@"play again" context:@"high score" category:@"settings"];
-
+  
 	Scene *scene = [[Scene node] addChild:[Game node] z:0];
 	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
 	[[Director sharedDirector] replaceScene:ts];

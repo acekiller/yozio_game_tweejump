@@ -17,6 +17,7 @@ static Bird *_sharedInstance;
 	if (self = [super init])
 	{
     type = @"twitter";
+    music = @"bs";
 	}
 	return self;
 }
@@ -39,6 +40,16 @@ static Bird *_sharedInstance;
 - (void) setType:(NSString*)newVal
 {
 	type = newVal;
+}
+
+- (NSString*) getMusic
+{
+	return music;
+}
+
+- (void) setMusic:(NSString*)newVal
+{
+	music = newVal;
 }
 
 @end
