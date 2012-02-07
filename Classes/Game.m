@@ -23,7 +23,7 @@
 
 - (id)init {
 	NSLog(@"Game::init");
-  [Yozio action:@"show" context:@"game scene" category:@"user"];
+  [Yozio action:@"show" category:@"user"];
   [Yozio startTimer:@"game scene"];  
   
 	if(![super init]) return nil;
@@ -39,7 +39,9 @@
 //pig 
   Bird *birdType = [Bird sharedInstance];
   NSLog(@"birdtype %@", [birdType getType]);
-  if ( [birdType getType] == @"pig") { 
+  
+  if ( [birdType getType] == @"pig" || [[Yozio stringForKey:@"characterStartType" defaultValue:@"default"] isEqualToString:@"pig"]) { 
+    [birdType setType:@"pig"];
     AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(674,6,716-674,58-6) spriteManager:spriteManager]; 
     NSLog(@"bird.parent %@", bird.parent);
     [spriteManager addChild:bird z:4 tag:kBird];
@@ -52,7 +54,7 @@
     NSLog(@"bird.parent %@", bird.parent);
     [spriteManager addChild:bird z:4 tag:kBird];
   } else if ([birdType getType] == @"mittromney"){
-    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(730,57,767-730,120-65) spriteManager:spriteManager];
+    AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(730,67,767-730,120-65) spriteManager:spriteManager];
     NSLog(@"bird.parent %@", bird.parent);
     [spriteManager addChild:bird z:4 tag:kBird];
   } else if ([birdType getType] == @"cuttherope"){
@@ -89,15 +91,17 @@
 	scoreLabel.position = ccp(160,430);
 
   // setup bg music
-  Bird *myBird = [Bird sharedInstance];
-  NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:[myBird getMusic] ofType:@"mp3"];
-  NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-  AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-  appDelegate->player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-  appDelegate->player.numberOfLoops = -1; //infinite = -1
-  [appDelegate->player play];
+  if ([[Yozio stringForKey:@"musicOn" defaultValue:@"false"] isEqualToString:@"true"]) {
+    Bird *myBird = [Bird sharedInstance];
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:[myBird getMusic] ofType:@"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
+    appDelegate->player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    appDelegate->player.numberOfLoops = -1; //infinite = -1
+    [appDelegate->player play];
+  }
   
   
 	[self schedule:@selector(step:)];
@@ -114,7 +118,7 @@
 
 - (void)dealloc {
 	NSLog(@"Game::dealloc");
-  [Yozio action:@"exit" context:@"game scene" category:@"user"];
+  [Yozio action:@"exit" category:@"user"];
   [Yozio endTimer:@"game scene" category:@"play"];  
 	
   [super dealloc];
@@ -201,11 +205,11 @@
 	
 	platform.position = ccp(x,currentPlatformY);
 	platformCount++;
-	[Yozio action:@"successful jump" context:@"game" category:@"play"];
+	[Yozio action:@"successful jump" category:@"play"];
 	
 	if(platformCount == currentBonusPlatformIndex) {
 //		NSLog(@"platformCount == currentBonusPlatformIndex");
-    [Yozio action:@"successful bonus jump" context:@"game" category:@"play"];
+    [Yozio action:@"successful bonus jump" category:@"play"];
 		AtlasSprite *bonus = (AtlasSprite*)[spriteManager getChildByTag:kBonusStartTag+currentBonusType];
 		bonus.position = ccp(x,currentPlatformY+30);
 		bonus.visible = YES;
@@ -396,7 +400,7 @@
 	[[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 	
 	NSLog(@"score = %d",score);
-  [Yozio action:[NSString stringWithFormat:@"%d", score] context:@"score" category:@"user"];
+  [Yozio action:[NSString stringWithFormat:@"%d", score] category:@"user"];
   
 	Highscores *highscores = [[Highscores alloc] initWithScore:score];
 

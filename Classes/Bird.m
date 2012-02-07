@@ -7,6 +7,7 @@
 //
 
 #import "Bird.h"
+#import "Yozio.h"
 
 @implementation Bird
 
@@ -16,8 +17,8 @@ static Bird *_sharedInstance;
 {
 	if (self = [super init])
 	{
-    type = @"twitter";
-    music = @"bs";
+    type = [Yozio stringForKey:@"characterStartType" defaultValue:@"twitter"];
+    music = [Yozio stringForKey:@"musicStartType" defaultValue:@"bs"];
 	}
 	return self;
 }

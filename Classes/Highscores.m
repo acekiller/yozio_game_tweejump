@@ -23,7 +23,7 @@
 
 - (id)initWithScore:(int)lastScore {
 	//NSLog(@"Highscores::init");
-  [Yozio action:@"show" context:@"highscore scene" category:@"user"];
+  [Yozio action:@"show" category:@"user"];
 	
 	if(![super init]) return nil;
 
@@ -80,10 +80,22 @@
   NSLog(@"%@", [NSString stringWithFormat: @"%@.png", [[Bird sharedInstance] getType]]);
 	MenuItem *button0 = [MenuItemImage itemFromNormalImage:[NSString stringWithFormat: @"%@.png", [[Bird sharedInstance] getType]] selectedImage:@"playAgainButton.png" target:self selector:@selector(button0Callback:)];
 	MenuItem *button1 = [MenuItemImage itemFromNormalImage:@"playAgainButton.png" selectedImage:@"playAgainButton.png" target:self selector:@selector(button1Callback:)];
-	MenuItem *button2 = [MenuItemImage itemFromNormalImage:@"BuyBirds.png" selectedImage:@"BuyBirds.png" target:self selector:@selector(button2Callback:)];
   MenuItem *button3 = [MenuItemImage itemFromNormalImage:@"changePlayerButton.png" selectedImage:@"changePlayerButton.png" target:self selector:@selector(button3Callback:)];
+  NSLog(@"a");
 
-	Menu *menu = [Menu menuWithItems: button0, button1, button2, button3, nil];
+  Menu *menu = [Menu  alloc];
+  NSLog(@"[Yozio stringForKey:@buyBirds defaultValue:@true] %@", [Yozio stringForKey:@"buyBirds" defaultValue:@"default"]);
+
+  if ([[Yozio stringForKey:@"buyBirds" defaultValue:@"false"] isEqualToString:@"true"]) {
+    NSLog(@"b");
+    MenuItem *button2 = [MenuItemImage itemFromNormalImage:@"BuyBirds.png" selectedImage:@"BuyBirds.png" target:self selector:@selector(button2Callback:)];
+    menu = [Menu menuWithItems: button0, button1, button2, button3, nil];
+  } else {
+    NSLog(@"c");
+    menu = [Menu menuWithItems: button0, button1, button3, nil];
+  }
+  NSLog(@"d");
+
 
 	[menu alignItemsVerticallyWithPadding:9];
 	menu.position = ccp(160,100);
@@ -91,7 +103,7 @@
 	[self addChild:menu];
   // Erase the view when recieving a notification named "shake" from the NSNotificationCenter object
 	// The "shake" nofification is posted by the PaintingWindow object when user shakes the device
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeBirdView) name:@"shake" object:nil];
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeBirdView) name:@"shake" object:nil];
 
 	return self;
 }
@@ -135,7 +147,7 @@
 
 - (void)dealloc {
 	NSLog(@"Highscores::dealloc");
-  [Yozio action:@"exit" context:@"highscore scene" category:@"user"];
+  [Yozio action:@"exit" category:@"user"];
 	[highscores release];
 	[super dealloc];
 }
@@ -224,7 +236,7 @@
 
 - (void)button1Callback:(id)sender {
 	NSLog(@"play again");
-  [Yozio action:@"play again" context:@"high score" category:@"settings"];
+  [Yozio action:@"play again" category:@"settings"];
   
 	Scene *scene = [[Scene node] addChild:[Game node] z:0];
 	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
@@ -233,7 +245,7 @@
 
 - (void)button2Callback:(id)sender {
 	NSLog(@"showing item recommendation screen");
-  [Yozio funnel:@"change player name" value:@"view" category:@"high score"];
+  [Yozio funnel:@"change player name" category:@"high score"];
 	
 	Scene *scene = [[Scene node] addChild:[ItemRecommendation node] z:0];
 	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
@@ -242,7 +254,7 @@
 
 - (void)button3Callback:(id)sender {
 	NSLog(@"update high scores");
-  [Yozio funnel:@"change player name" value:@"view" category:@"high score"];
+  [Yozio funnel:@"change player name" category:@"high score"];
 	
 	changePlayerAlert = [UIAlertView new];
 	changePlayerAlert.title = @"Change Player";
@@ -312,9 +324,9 @@
 	
 	if(buttonIndex == 0) {
 		[self changePlayerDone];
-    [Yozio funnel:@"change player name" value:@"changed" category:@"high score"];
+    [Yozio funnel:@"change player name" category:@"high score"];
 	} else {
-    [Yozio funnel:@"change player name" value:@"cancelled" category:@"high score"];
+    [Yozio funnel:@"change player name" category:@"high score"];
 		// nothing
 	}
 }

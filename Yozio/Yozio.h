@@ -20,7 +20,7 @@
  *     Import Yozio.h in any file you wish to use Yozio.
  *     In your application delegate's applicationDidFinishLaunching method, configure Yozio:
  *
- *         [Yozio configure:@"snapette"
+ *         [Yozio configure:@"myappname"
  *              userId:@"MyUserId"
  *              env:@"production"
  *              appVersion:@"1.0.1"
@@ -101,28 +101,27 @@
  * Instruments a new step in a funnel.
  *
  * @param funnelName The name of the funnel.
- * @param value The step of the funnel that has been reached.
  * @param category The category to group this event under.
  *
  * @example // User enters checkout page.
- *          [Yozio funnel:@"Checkout" value:@"Start Checkout" category:@"MyCategory"];
+ *          [Yozio funnel:@"Checkout" category:@"MyCategory"];
  *
  *          ...later on...
  *
  *          // User verified shopping cart and proceeds to checkout.
- *          [Yozio funnel:@"Checkout" value:@"Verified Cart" category:@"MyCategory"];
+ *          [Yozio funnel:@"Checkout" category:@"MyCategory"];
  *
  *          ...later on...
  *
  *          // User enterd shipping and billing information
- *          [Yozio funnel:@"Checkout" value:@"Submitted Billing Info" category:@"MyCategory"];
+ *          [Yozio funnel:@"Checkout" category:@"MyCategory"];
  *
  *          ...later on...
  *
  *          // User confirmed order and finishes purchase.
- *          [Yozio funnel:@"Checkout" value:@"Purchased!" category:@"MyCategory"];
+ *          [Yozio funnel:@"Checkout" category:@"MyCategory"];
  */
-+ (void)funnel:(NSString *)funnelName value:(NSString *)value category:(NSString *)category;
++ (void)funnel:(NSString *)funnelName category:(NSString *)category;
 
 
 /**
@@ -141,14 +140,11 @@
  * Instruments some user action. An action can be anything, such as a button click.
  *
  * @param actionName The name of the action the user performed.
- * @param context The context in which the action was performed. For example, if your application
- *                is a game with muliple levels, each level can be the different context. Or if
- *                your application has multiple screens, each screen can be a different context.
  * @param category The category to group this event under.
  *
- * @example [Yozio action:@"jump" context:@"Level 1"  category:@"play"];
+ * @example [Yozio action:@"jump" category:@"play"];
  */
-+ (void)action:(NSString *)actionName context:(NSString *)context category:(NSString *)category;
++ (void)action:(NSString *)actionName category:(NSString *)category;
 
 
 /**
@@ -159,10 +155,9 @@
  * @param category The category to group this event under.
  *
  * @example NSError *error = ...;
- *          NSString *errorMsg = [error localizedFailureReason];
- *          [Yozio error:@"Save Error" message:errorMsg category:@"persistence"];
+ *          [Yozio error:@"Save Error" category:@"persistence"];
  */
-+ (void)error:(NSString *)errorName message:(NSString *)message category:(NSString *)category;
++ (void)error:(NSString *)errorName category:(NSString *)category;
 
 
 /**
@@ -189,13 +184,13 @@
  * A general instrumentation method. Used to instrument miscellaneous events. Only use this if
  * none of the other methods can be used.
  *
- * @param key The name of the event to instrument.
- * @param value The value of the event to instrument.
+ * @param name The name of the event to instrument.
+ * @param amount The amount of the event to instrument.
  * @param category The category to group this event under.
  *
  * @example [Yozio collect:@"SomeEvent" value:@"SomeValue" category:@"MyCategory"];
  */
-+ (void)collect:(NSString *)key value:(NSString *)value category:(NSString *)category;
++ (void)collect:(NSString *)name amount:(NSString *)amount category:(NSString *)category;
 
 
 /**

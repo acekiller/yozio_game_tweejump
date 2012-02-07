@@ -26,7 +26,7 @@
 - (id)init {
   //NSLog(@"Highscores::init");
   NSLog(@"1");
-  [Yozio action:@"show" context:@"highscore scene" category:@"user"];
+  [Yozio action:@"show" category:@"user"];
     
   if(![super init]) return nil;
   NSLog(@"2");  
@@ -42,14 +42,23 @@
   MenuItem *button6 = [MenuItemImage itemFromNormalImage:@"yellowbird-menu.png" selectedImage:@"yellowbird-menu.png" target:self selector:@selector(button6Callback:)];
   MenuItem *button7 = [MenuItemImage itemFromNormalImage:@"pig-menu.png" selectedImage:@"pig-menu.png" target:self selector:@selector(button7Callback:)];
   NSLog(@"3");
-  NSMutableArray *buttons = [[NSMutableArray alloc] initWithObjects:button1, button2, button3, button4, button5, button6, button7, nil];
-  for(int i=0;i<10;i++){
-    int a = random()%buttons.count;
-    int b = random()%buttons.count;
-    [buttons exchangeObjectAtIndex:a withObjectAtIndex:b];
+  NSMutableArray *buttons = [NSMutableArray alloc];
+  NSString *recommendationOrder = [Yozio stringForKey:@"recommendationOrder" defaultValue:@"cartoonsFirst"];
+  if ([recommendationOrder isEqualToString:@"politiciansFirst"]) {
+    buttons = [[NSMutableArray alloc] initWithObjects:button1, button2, button3, nil];
+  } else if ([recommendationOrder isEqualToString:@"cartoonsFirst"]) {
+    buttons = [[NSMutableArray alloc] initWithObjects:button4, button5, button6, nil];
+  } else {
+    buttons = [[NSMutableArray alloc] initWithObjects:button1, button2, button5, nil];
+    for(int i=0;i<10;i++){
+      int a = random()%buttons.count;
+      int b = random()%buttons.count;
+      [buttons exchangeObjectAtIndex:a withObjectAtIndex:b];
+    }
+
   }
   MenuItem *backButton = [MenuItemImage itemFromNormalImage:@"backButton.png" selectedImage:@"backButton.png" target:self selector:@selector(backButtonCallback:)];
-	Menu *menu = [Menu menuWithItems: [buttons objectAtIndex:0], [buttons objectAtIndex:1], [buttons objectAtIndex:2], [buttons objectAtIndex:3], [buttons objectAtIndex:4], [buttons objectAtIndex:5], [buttons objectAtIndex:6], backButton, nil];
+	Menu *menu = [Menu menuWithItems: [buttons objectAtIndex:0], [buttons objectAtIndex:1], [buttons objectAtIndex:2], backButton, nil];
 
   NSLog(@"4");
 	[menu alignItemsVerticallyWithPadding:9];
@@ -62,7 +71,7 @@
 
 - (void)dealloc {
 	NSLog(@"Highscores::dealloc");
-  [Yozio action:@"exit" context:@"highscore scene" category:@"user"];
+  [Yozio action:@"exit" category:@"user"];
 	[super dealloc];
 }
 
