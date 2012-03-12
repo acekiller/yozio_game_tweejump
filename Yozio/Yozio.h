@@ -20,10 +20,15 @@
  *     Import Yozio.h in any file you wish to use Yozio.
  *     In your application delegate's applicationDidFinishLaunching method, configure Yozio:
  *
- *         [Yozio configure:@"myappname"
+ *         [Yozio configure:@"myappKey"
  *              userId:@"MyUserId"
  *              env:@"production"
  *              appVersion:@"1.0.1"
+ *              campaignSource:"google",
+ *              campaignMedium:"cpc",
+ *              campaignTerm:"twitter bird jump",
+ *              campaignContent:"content",
+ *              campaignName:"12873",
  *              exceptionHandler:&myExceptionHandler];
  *
  *     If you already set a global uncaught exception (NSSetUncaughtExceptionHandler), remove that
@@ -41,7 +46,7 @@
 /**
  * Configures Yozio with your application's information.
  *
- * @param appName The application name we provided you for your application.
+ * @param appKey The application name we provided you for your application.
  * @param userId The id of the user currently using your application. If your application
  *               does not support users, pass in an empty string.
  * @param env The environment that the application is currently running in. Possible values are
@@ -50,16 +55,30 @@
  * @param exceptionHandler A custom global uncaught exception handler for your application.
  *                         If you do not need to process uncaught exceptions, pass in nil.
  *
- * @example [Yozio configure:@"appName"
+ * @example [Yozio configure:@"appKey"
  *              userId:@"MyUserId"
  *              env:@"production"
  *              appVersion:@"1.0.1"
+ *              campaignSource:"google",
+ *              campaignMedium:"cpc",
+ *              campaignTerm:"twitter bird jump",
+ *              campaignContent:"content",
+ *              campaignName:"12873",
+
+ 
+ 
  *              exceptionHandler:&myExceptionHandler];
  */
-+ (void)configure:(NSString *)appName
-    userId:(NSString *)userId
-    env:(NSString *)env
-    appVersion:(NSString *)appVersion
++ (void)configure:(NSString *)appKey
+           userId:(NSString *)userId
+              env:(NSString *)env
+       appVersion:(NSString *)appVersion
+  campaignSource :(NSString *)campaignSource
+  campaignMedium :(NSString *)campaignMedium
+    campaignTerm :(NSString *)campaignTerm
+ campaignContent :(NSString *)campaignContent
+    campaignName :(NSString *)campaignName
+
     exceptionHandler:(NSUncaughtExceptionHandler *)exceptionHandler;
 
 

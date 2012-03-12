@@ -42,15 +42,22 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication*)application {
+  [player dealloc];
 	[[Director sharedDirector] end];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication*)application {
   // Yozio
+  NSLog(@"applicationDidBecomeActive");
   [Yozio configure:@"tweejump"
             userId:@"MyUserId"
                env:@"production"
         appVersion:@"1.0.1"
+   campaignSource :@"google"
+   campaignMedium :@"cpc"
+     campaignTerm :@"tweejump listener"
+  campaignContent :@"blank"
+     campaignName :@"blank"
   exceptionHandler:NULL];
   [Yozio newSession];
   
@@ -89,12 +96,6 @@
   NSLog(@"Setting bird type from %@ to %@", [[Bird sharedInstance] getType], type);
   Bird *bird = [Bird sharedInstance];
   [bird setType:type];
-  NSLog(@"%@", [Scene node]);
-  NSLog(@"%@", [Game node]);
-  NSLog(@"%@", [Director sharedDirector]);
-  NSLog(@"%@", [[Director sharedDirector] runningScene]);
-  NSLog(@"%@" ,[Highscores class]);
-  NSLog(@"%@", [[[Director sharedDirector] runningScene] isKindOfClass:[Highscores class]]);
   //	Scene *scene = [[Scene node] addChild:[Game node] z:0];
   //	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
   //	[[Director sharedDirector] replaceScene:ts];

@@ -49,7 +49,7 @@
     AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(861,55,902-861,115-65) spriteManager:spriteManager];
     NSLog(@"bird.parent %@", bird.parent);
     [spriteManager addChild:bird z:4 tag:kBird];
-  } else if ([birdType getType] == @"obama"){
+  } else if ([birdType getType] == @"obama" || [[Yozio stringForKey:@"characterStartType" defaultValue:@"default"] isEqualToString:@"obama"]){
     AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(795,57,828-795,120-65) spriteManager:spriteManager];
     NSLog(@"bird.parent %@", bird.parent);
     [spriteManager addChild:bird z:4 tag:kBird];
@@ -93,8 +93,7 @@
   // setup bg music
 
   if ([[Yozio stringForKey:@"musicOn" defaultValue:@"false"] isEqualToString:@"true"]) {
-    Bird *myBird = [Bird sharedInstance];
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:[myBird getMusic] ofType:@"mp3"];
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:[Yozio stringForKey:@"musicStartType" defaultValue:@"bs"] ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
