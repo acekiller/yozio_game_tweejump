@@ -26,7 +26,7 @@
 - (id)init {
   //NSLog(@"Highscores::init");
   NSLog(@"1");
-  [Yozio action:@"show" category:@"user"];
+  [Yozio action:@"show ItemRecommendation" category:@"user"];
     
   if(![super init]) return nil;
   NSLog(@"2");  
@@ -71,7 +71,7 @@
 
 - (void)dealloc {
 	NSLog(@"Highscores::dealloc");
-  [Yozio action:@"exit" category:@"user"];
+  [Yozio action:@"exit ItemRecommendation" category:@"user"];
 	[super dealloc];
 }
 

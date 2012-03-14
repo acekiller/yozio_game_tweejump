@@ -23,8 +23,7 @@
 
 - (id)init {
 	NSLog(@"Game::init");
-  [Yozio action:@"show" category:@"user"];
-  [Yozio startTimer:@"game scene"];  
+  [Yozio action:@"game start" category:@"user"];
   
 	if(![super init]) return nil;
 	
@@ -117,8 +116,7 @@
 
 - (void)dealloc {
 	NSLog(@"Game::dealloc");
-  [Yozio action:@"exit" category:@"user"];
-  [Yozio endTimer:@"game scene" category:@"play"];  
+  [Yozio action:@"game end" category:@"user"];
 	
   [super dealloc];
 }
@@ -204,8 +202,9 @@
 	
 	platform.position = ccp(x,currentPlatformY);
 	platformCount++;
-	[Yozio action:@"successful jump" category:@"play"];
 	
+  [Yozio action:@"successful jump" category:@"play"];
+
 	if(platformCount == currentBonusPlatformIndex) {
 //		NSLog(@"platformCount == currentBonusPlatformIndex");
     [Yozio action:@"successful bonus jump" category:@"play"];
