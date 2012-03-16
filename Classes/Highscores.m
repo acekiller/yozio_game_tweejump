@@ -23,7 +23,7 @@
 
 - (id)initWithScore:(int)lastScore {
 	//NSLog(@"Highscores::init");
-  [Yozio action:@"show" category:@"user"];
+  [Yozio action:@"show"];
 	
 	if(![super init]) return nil;
 
@@ -147,7 +147,7 @@
 
 - (void)dealloc {
 	NSLog(@"Highscores::dealloc");
-  [Yozio action:@"exit" category:@"user"];
+  [Yozio action:@"exit"];
 	[highscores release];
 	[super dealloc];
 }
@@ -236,7 +236,7 @@
 
 - (void)button1Callback:(id)sender {
 	NSLog(@"play again");
-  [Yozio action:@"play again" category:@"settings"];
+  [Yozio action:@"play again"];
   
 	Scene *scene = [[Scene node] addChild:[Game node] z:0];
 	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
@@ -245,7 +245,6 @@
 
 - (void)button2Callback:(id)sender {
 	NSLog(@"showing item recommendation screen");
-  [Yozio funnel:@"change player name" category:@"high score"];
 	
 	Scene *scene = [[Scene node] addChild:[ItemRecommendation node] z:0];
 	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
@@ -254,7 +253,10 @@
 
 - (void)button3Callback:(id)sender {
 	NSLog(@"update high scores");
-  [Yozio funnel:@"change player name" category:@"high score"];
+  NSLog(@"throw an error");
+  [NSException raise:@"MyException"
+              format:@"Some Exceptions"];
+  
 	
 	changePlayerAlert = [UIAlertView new];
 	changePlayerAlert.title = @"Change Player";
@@ -324,9 +326,7 @@
 	
 	if(buttonIndex == 0) {
 		[self changePlayerDone];
-    [Yozio funnel:@"change player name" category:@"high score"];
 	} else {
-    [Yozio funnel:@"change player name" category:@"high score"];
 		// nothing
 	}
 }

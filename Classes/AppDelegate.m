@@ -2,11 +2,13 @@
 #import "Game.h"
 #import "Main.h"
 #import "Yozio.h"
+#import "Yozio_Private.h"
 #import "Apsalar.h"
 #import "AVFoundation/AVFoundation.h"
 #import "SoundEffect.h"
 #import "Bird.h"
 #import "Highscores.h"
+
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
@@ -19,9 +21,6 @@
 	[[Director sharedDirector] setAnimationInterval:1.0/kFPS];
   
 	[Texture2D setDefaultAlphaPixelFormat:kTexture2DPixelFormat_RGBA8888]; 
-	
-	
-  
 }
 
 // Called when receiving the "shake" notification; plays the erase sound and redraws the view
@@ -47,19 +46,92 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication*)application {
+
+  
   // Yozio
   NSLog(@"applicationDidBecomeActive");
-  [Yozio configure:@"tweejump"
-            userId:@"MyUserId"
-               env:@"production"
-        appVersion:@"1.0.1"
-   campaignSource :@"google"
-   campaignMedium :@"cpc"
-     campaignTerm :@"tweejump listener"
-  campaignContent :@"blank"
-     campaignName :@"blank"
-  exceptionHandler:NULL];
-  [Yozio newSession];
+  NSLog(@"Configuration test");
+  [Yozio configure:@"tweejump" secretKey:@"shhhhh"];
+  [Yozio setApplicationVersion:@"1.0.1"];
+  [Yozio setUserId:@"MyUserId"];
+  [Yozio setApplicationVersion:@"1.0.1"];
+  [Yozio setUserId:@"MyUserId"];
+  [Yozio configure:@"tweejump" secretKey:@"shhhhh"];
+  [Yozio setUserId:@"MyUserId"];
+  [Yozio configure:@"tweejump" secretKey:@"shhhhh"];
+  [Yozio setApplicationVersion:@"1.0.1"];
+  [Yozio configure:@"tweejump" secretKey:@"shhhhh"];
+  [Yozio setApplicationVersion:@"1.0.1"];
+  [Yozio setUserId:@"MyUserId"];
+  [Yozio setApplicationVersion:@"1.0.1"];
+  [Yozio setUserId:@"MyUserId"];
+  [Yozio configure:@"tweejump" secretKey:@"shhhhh"];
+  [Yozio setUserId:@"MyUserId"];
+//  [Yozio getInstance].dataQueue = [NSMutableArray array];
+  
+
+  NSLog(@"Data Queue Size %d. Should be 0", [[Yozio getInstance].dataQueue count]);
+
+  // endTimer
+  [Yozio endTimer:@"applicationDidBecomeActive"];
+  NSLog(@"Data Queue Size %d. Should be 0", [[Yozio getInstance].dataQueue count]);
+
+  
+//  Start Timer, End Timer
+  [Yozio startTimer:@"applicationDidBecomeActive"];
+  [NSThread sleepForTimeInterval:2];
+  [Yozio endTimer:@"applicationDidBecomeActive"];
+  NSLog(@"Data Queue Size %d. Should be 1", [[Yozio getInstance].dataQueue count]);
+
+  //  Start Timer, Start Timer. End Timer, End Timer
+  [Yozio startTimer:@"applicationDidBecomeActive"];
+  [Yozio startTimer:@"applicationDidBecomeActive"];
+  [Yozio endTimer:@"applicationDidBecomeActive"];
+  [Yozio endTimer:@"applicationDidBecomeActive"];
+  NSLog(@"Data Queue Size %d. Should be 2", [[Yozio getInstance].dataQueue count]);
+
+  //  Start Timer, Collect Action, End Timer
+  [Yozio startTimer:@"applicationDidBecomeActive"];
+  [Yozio action:@"cat.balou"];
+  [Yozio endTimer:@"applicationDidBecomeActive"];
+  NSLog(@"Data Queue Size %d. Should be 4", [[Yozio getInstance].dataQueue count]);
+
+  
+  //  Start Timer, Collect Action, Background, End Timer
+  [Yozio startTimer:@"applicationDidBecomeActive"];
+  [Yozio action:@"cat.balou"];
+  NSLog(@"BACKGROUND THE APP NOW");
+  [NSThread sleepForTimeInterval:5]; //Time for us to background it.
+  [Yozio endTimer:@"applicationDidBecomeActive"];
+  NSLog(@"Data Queue Size %d. Should be 4", [[Yozio getInstance].dataQueue count]);
+  
+  //  Start Timer, Background the App, End Timer
+  [Yozio startTimer:@"applicationDidBecomeActive"];
+  [Yozio action:@"cat.balou"];
+  NSLog(@"BACKGROUND/QUIT THE APP NOW");
+  [NSThread sleepForTimeInterval:5]; //Time for us to background it.
+//End Timer is on line 73.
+  
+  NSLog(@"Time for it to send once. Check logs to ensure only 1 flush is called");
+  [NSThread sleepForTimeInterval:15]; 
+
+  // Stress Test
+  NSInteger prev = [[Yozio getInstance].dataQueue count];
+  NSInteger prevDataCount = [Yozio getInstance].dataCount;
+  for(int i=0;i<6000;i++){
+    if (i%100==0) {
+      NSLog(@"%d", i); 
+    }
+    [Yozio action:@"drink LC"];
+  }
+  NSLog(@"total number of events added to dataQueue from stress test %d. Should be 5000 - %d", [[Yozio getInstance].dataQueue count], prev);
+  NSLog(@"total number of events counted from stress test %d. Should be 6000", [Yozio getInstance].dataCount - prevDataCount);
+
+  
+  
+  
+  
+  
   
   NSLog(@"recommendationOrder %@", [Yozio stringForKey:@"recommendationOrder" defaultValue:@"default"]);
   NSLog(@"buyBirds %@", [Yozio stringForKey:@"buyBirds" defaultValue:@"default"]);
