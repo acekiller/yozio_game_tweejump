@@ -10,8 +10,8 @@
 #import "Yozio.h"
 
 #define YOZIO_BEACON_SCHEMA_VERSION @"1"
-#define YOZIO_TRACKING_SERVER_URL @"ec2-50-18-34-219.us-west-1.compute.amazonaws.com:8080"
-#define YOZIO_CONFIGURATION_SERVER_URL @"c.yozio.com"
+#define YOZIO_TRACKING_SERVER_URL @"demo.yozio.com"
+#define YOZIO_CONFIGURATION_SERVER_URL @"demo.yozio.com"
 
 // Set to true to show log messages.
 #define YOZIO_LOG true
@@ -62,6 +62,9 @@
 #define YOZIO_ORIENT_FACE_DOWN @"fd"
 #define YOZIO_ORIENT_UNKNOWN @"u"
 
+// The number of seconds of inactivity before a new session is started.
+#define YOZIO_SESSION_INACTIVITY_THRESHOLD 1800
+
 // The number of items in the queue before forcing a flush.
 #define YOZIO_FLUSH_DATA_COUNT 15
 // Time interval before automatically flushing the data queue.
@@ -79,6 +82,7 @@
 #define YOZIO_CONFIG_EXPERIMENTS_KEY @"experiments"
 
 #define YOZIO_DATA_QUEUE_FILE [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"YozioLib_SavedData.plist"]
+#define YOZIO_SESSION_FILE [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"YozioLib_SessionData.plist"]
 #define YOZIO_UUID_KEYCHAIN_USERNAME @"yozioUuid"
 #define YOZIO_KEYCHAIN_SERVICE @"yozioKeychain"
 
@@ -102,6 +106,7 @@
   NSString *environment;
   
   // Internal variables.
+  NSDate *lastActiveTime;
   NSTimer *flushTimer;
   NSInteger dataCount;
   NSMutableArray *dataQueue;
@@ -109,6 +114,7 @@
   NSMutableDictionary *timers;
   NSMutableDictionary *config;
   NSDateFormatter *dateFormatter;
+  BOOL stopConfigLoading;
 }
 
 // User set instrumentation variables.
@@ -129,6 +135,7 @@
 @property(nonatomic, retain) NSString *environment;
 
 // Internal variables.
+@property(nonatomic, retain) NSDate *lastActiveTime;
 @property(nonatomic, retain) NSTimer *flushTimer;
 @property(nonatomic, assign) NSInteger dataCount;
 @property(nonatomic, retain) NSMutableArray *dataQueue;
@@ -136,6 +143,7 @@
 @property(nonatomic, retain) NSMutableDictionary *timers;
 @property(nonatomic, retain) NSMutableDictionary *config;
 @property(nonatomic, retain) NSDateFormatter *dateFormatter;
+@property(nonatomic, assign) BOOL stopConfigLoading;
 
 + (Yozio *)getInstance; 
 + (void)log:(NSString *)format, ...;
@@ -162,6 +170,7 @@
 - (NSString *)timeStampString;
 - (NSString *)deviceOrientation;
 - (NSString *)uiOrientation;
+- (void)updateSessionId;
 - (void)updateCountryName;
 - (void)updateLanguage;
 - (void)updateTimezone;
@@ -169,6 +178,8 @@
 // File system helper methods.
 - (void)saveUnsentData;
 - (void)loadUnsentData;
+- (void)saveSessionData;
+- (void)loadSessionData;
 
 // UUID helper methods.
 - (NSString *)loadOrCreateDeviceId;

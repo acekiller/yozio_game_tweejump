@@ -203,7 +203,6 @@
 	platform.position = ccp(x,currentPlatformY);
 	platformCount++;
 	
-  [Yozio action:@"successful jump"];
 
 	if(platformCount == currentBonusPlatformIndex) {
 //		NSLog(@"platformCount == currentBonusPlatformIndex");
