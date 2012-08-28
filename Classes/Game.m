@@ -22,8 +22,15 @@
 @implementation Game
 
 - (id)init {
+  
+  [Yozio viewedLink:@"twitter sharing"];
+  
+  NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/app/id123"];
+
+  NSLog(@"url %@", url);
+  [Yozio sharedLink:@"twitter sharing"];
+
 	NSLog(@"Game::init");
-  [Yozio action:@"game start"];
   
 	if(![super init]) return nil;
 	
@@ -116,7 +123,6 @@
 
 - (void)dealloc {
 	NSLog(@"Game::dealloc");
-  [Yozio action:@"game end"];
 	
   [super dealloc];
 }
@@ -206,7 +212,6 @@
 
 	if(platformCount == currentBonusPlatformIndex) {
 //		NSLog(@"platformCount == currentBonusPlatformIndex");
-    [Yozio action:@"successful bonus jump"];
 		AtlasSprite *bonus = (AtlasSprite*)[spriteManager getChildByTag:kBonusStartTag+currentBonusType];
 		bonus.position = ccp(x,currentPlatformY+30);
 		bonus.visible = YES;
@@ -397,7 +402,6 @@
 	[[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 	
 	NSLog(@"score = %d",score);
-  [Yozio action:[NSString stringWithFormat:@"%d", score]];
   
 	Highscores *highscores = [[Highscores alloc] initWithScore:score];
 

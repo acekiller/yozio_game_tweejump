@@ -14,10 +14,7 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   //	[window setUserInteractionEnabled:YES];
   //	[window setMultipleTouchEnabled:YES];	
-  [Yozio configure:@"a2ee1e70-5172-012f-af85-000c299b62bf" secretKey:@"shhhhh"];
-  [Yozio setApplicationVersion:@"1.0.1"];
-  [Yozio setUserId:@"MyUserId"];
-
+  [Yozio configure:@"ca2e6ac0-d2d4-012f-2c29-12314000ac7c" secretKey:@"ca2e73c0-d2d4-012f-2c2a-12314000ac7c"];
   
 	[[Director sharedDirector] setPixelFormat:kRGBA8];
 	
@@ -64,16 +61,6 @@
 	Scene *scene = [[Scene node] addChild:[Game node] z:0];
 	[[Director sharedDirector] runWithScene:scene];
   
-  NSBundle *mainBundle = [NSBundle mainBundle];	
-	erasingSound =  [[SoundEffect alloc] initWithContentsOfFile:[mainBundle pathForResource:@"Erase" ofType:@"caf"]];
-  
-  // setup sound
-  Bird *myBird = [Bird sharedInstance];
-  
-  
-  NSLog(@"bird %@", [myBird getType]);
-  NSLog(@"loaded sound, %@", [myBird getMusic]);
-  [erasingSound play];
   
 }
 

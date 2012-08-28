@@ -23,7 +23,6 @@
 
 - (id)initWithScore:(int)lastScore {
 	//NSLog(@"Highscores::init");
-  [Yozio action:@"show"];
 	
 	if(![super init]) return nil;
 
@@ -147,7 +146,6 @@
 
 - (void)dealloc {
 	NSLog(@"Highscores::dealloc");
-  [Yozio action:@"exit"];
 	[highscores release];
 	[super dealloc];
 }
@@ -236,7 +234,6 @@
 
 - (void)button1Callback:(id)sender {
 	NSLog(@"play again");
-  [Yozio action:@"play again"];
   
 	Scene *scene = [[Scene node] addChild:[Game node] z:0];
 	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
