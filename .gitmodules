@@ -1,3 +1,3 @@
-[submodule "yozio_ios_x"]
-	path = yozio_ios_x
-	url = git@github.com:jimmytang/yozio_ios_x.git
+[submodule "yozio_ios_sdk"]
+	path = yozio_ios_sdk
+	url = git@github.com:yozio/yozio_ios_sdk.git
