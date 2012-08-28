@@ -28,6 +28,7 @@
 	[self initClouds];
 
 	[self schedule:@selector(step:)];
+  
 	
 	return self;
 }
