@@ -15,7 +15,7 @@
   //	[window setUserInteractionEnabled:YES];
   //	[window setMultipleTouchEnabled:YES];	
   [Yozio configure:@"ca2e6ac0-d2d4-012f-2c29-12314000ac7c" secretKey:@"ca2e73c0-d2d4-012f-2c2a-12314000ac7c"];
-  
+  [Yozio initializeExperiments];
 	[[Director sharedDirector] setPixelFormat:kRGBA8];
 	
   //	[[Director sharedDirector] setDisplayFPS:YES];
