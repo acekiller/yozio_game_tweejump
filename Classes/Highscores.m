@@ -6,6 +6,9 @@
 #import "SoundEffect.h"
 #import "Bird.h"
 #import "AppDelegate.h"
+#import "SHK.h"
+#import "SHKFacebook.h"
+#import "SHKTwitter.h"
 
 @interface Highscores (Private)
 - (void)loadCurrentPlayer;
@@ -16,25 +19,22 @@
 - (void)button1Callback:(id)sender;
 - (void)button2Callback:(id)sender;
 - (void)button3Callback:(id)sender;
+- (void)shareOnFacebook:(id)sender;
+- (void)shareOnTwitter:(id)sender;
 @end
 
 
 @implementation Highscores
+@synthesize vc;
 
 - (id)initWithScore:(int)lastScore {
-	//NSLog(@"Highscores::init");
-	
 	if(![super init]) return nil;
 
   AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
   
   [appDelegate->player stop];
-	//NSLog(@"lastScore = %d",lastScore);
-	
 	currentScore = lastScore;
 
-	//NSLog(@"currentScore = %d",currentScore);
-	
 	[self loadCurrentPlayer];
 	[self loadHighscores];
 	[self updateHighscores];
@@ -76,25 +76,16 @@
 		if(count == 5) break;
 	}
 
-  NSLog(@"%@", [NSString stringWithFormat: @"%@.png", [[Bird sharedInstance] getType]]);
-	MenuItem *button0 = [MenuItemImage itemFromNormalImage:[NSString stringWithFormat: @"%@.png", [[Bird sharedInstance] getType]] selectedImage:@"playAgainButton.png" target:self selector:@selector(button0Callback:)];
 	MenuItem *button1 = [MenuItemImage itemFromNormalImage:@"playAgainButton.png" selectedImage:@"playAgainButton.png" target:self selector:@selector(button1Callback:)];
-  MenuItem *button3 = [MenuItemImage itemFromNormalImage:@"changePlayerButton.png" selectedImage:@"changePlayerButton.png" target:self selector:@selector(button3Callback:)];
-  NSLog(@"a");
-
+  MenuItem *fb = [MenuItemImage itemFromNormalImage:@"facebook.png"
+                                      selectedImage:@"facebook.png"
+                                             target:self
+                                           selector:@selector(shareOnFacebook:)];
+  MenuItem *twitter = [MenuItemImage itemFromNormalImage:@"twitterlogo.png" selectedImage:@"twitterlogo.png" target:self selector:@selector(shareOnTwitter:)];
+  
   Menu *menu = [Menu  alloc];
-  NSLog(@"[Yozio stringForKey:@buyBirds defaultValue:@true] %@", [Yozio stringForKey:@"buyBirds" defaultValue:@"default"]);
 
-  if ([[Yozio stringForKey:@"buyBirds" defaultValue:@"false"] isEqualToString:@"true"]) {
-    NSLog(@"b");
-    MenuItem *button2 = [MenuItemImage itemFromNormalImage:@"BuyBirds.png" selectedImage:@"BuyBirds.png" target:self selector:@selector(button2Callback:)];
-    menu = [Menu menuWithItems: button0, button1, button2, button3, nil];
-  } else {
-    NSLog(@"c");
-    menu = [Menu menuWithItems: button0, button1, button3, nil];
-  }
-  NSLog(@"d");
-
+  menu = [Menu menuWithItems: button1, fb, twitter, nil];
 
 	[menu alignItemsVerticallyWithPadding:9];
 	menu.position = ccp(160,100);
@@ -104,21 +95,22 @@
 	// The "shake" nofification is posted by the PaintingWindow object when user shakes the device
 //	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeBirdView) name:@"shake" object:nil];
 
+  
+  
+  
+  
+  
+  
+  
 	return self;
 }
 
+
+
 - (void)updateBirdAndStartGame:(NSString*)type music:(NSString*)music {
-  NSLog(@"%@ selected", type);
-  NSLog(@"Setting bird type from %@ to %@", [[Bird sharedInstance] getType], type);
   Bird *bird = [Bird sharedInstance];
   [bird setType:type];
   [bird setMusic:music];
-  NSLog(@"%@", [Scene node]);
-  NSLog(@"%@", [Game node]);
-  NSLog(@"%@", [Director sharedDirector]);
-  NSLog(@"%@", [[Director sharedDirector] runningScene]);
-  NSLog(@"%@" ,[Highscores class]);
-  NSLog(@"%@", [[[Director sharedDirector] runningScene] isKindOfClass:[Highscores class]]);
   Highscores *h = [[Highscores alloc] initWithScore:currentScore];
   Scene *scene = [[Scene node] addChild:h z:0];
   [[Director sharedDirector] replaceScene:[FadeTransition transitionWithDuration:1 scene:scene withColorRGB:0xffffff]];
@@ -151,8 +143,6 @@
 }
 
 - (void)loadCurrentPlayer {
-	//NSLog(@"loadCurrentPlayer");
-	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
 	currentPlayer = nil;
@@ -160,8 +150,6 @@
 	if(!currentPlayer) {
 		currentPlayer = @"anonymous";
 	}
-
-	//NSLog(@"currentPlayer = %@",currentPlayer);
 }
 
 - (void)loadHighscores {
@@ -192,8 +180,6 @@
 }
 
 - (void)updateHighscores {
-	//NSLog(@"updateHighscores");
-	
 	currentScorePosition = -1;
 	int count = 0;
 	for(NSMutableArray *highscore in highscores) {
@@ -222,7 +208,6 @@
 }
 
 - (void)saveHighscores {
-	NSLog(@"saveHighscores");
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
@@ -233,49 +218,12 @@
 }
 
 - (void)button1Callback:(id)sender {
-	NSLog(@"play again");
   
 	Scene *scene = [[Scene node] addChild:[Game node] z:0];
 	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
 	[[Director sharedDirector] replaceScene:ts];
 }
 
-- (void)button2Callback:(id)sender {
-	NSLog(@"showing item recommendation screen");
-	
-	Scene *scene = [[Scene node] addChild:[ItemRecommendation node] z:0];
-	TransitionScene *ts = [FadeTransition transitionWithDuration:0.5f scene:scene withColorRGB:0xffffff];
-	[[Director sharedDirector] replaceScene:ts];
-}
-
-- (void)button3Callback:(id)sender {
-	NSLog(@"update high scores");
-  NSLog(@"throw an error");
-  [NSException raise:@"MyException"
-              format:@"Some Exceptions"];
-  
-	
-	changePlayerAlert = [UIAlertView new];
-	changePlayerAlert.title = @"Change Player";
-	changePlayerAlert.message = @"\n";
-	changePlayerAlert.delegate = self;
-	[changePlayerAlert addButtonWithTitle:@"Save"];
-	[changePlayerAlert addButtonWithTitle:@"Cancel"];
-
-	changePlayerTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 45, 245, 27)];
-	changePlayerTextField.borderStyle = UITextBorderStyleRoundedRect;
-	[changePlayerAlert addSubview:changePlayerTextField];
-//	changePlayerTextField.placeholder = @"Enter your name";
-//	changePlayerTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-	changePlayerTextField.keyboardType = UIKeyboardTypeDefault;
-	changePlayerTextField.returnKeyType = UIReturnKeyDone;
-	changePlayerTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-	changePlayerTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-	changePlayerTextField.delegate = self;
-	[changePlayerTextField becomeFirstResponder];
-
-	[changePlayerAlert show];
-}
 
 - (void)draw {
 //	NSLog(@"draw");
@@ -334,5 +282,22 @@
 //	[self changePlayerDone];
 //	return YES;
 //}
+
+
+-(void)shareOnFacebook:(id)sender {
+  NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
+  
+  SHKItem *fbItem = [SHKItem text:url];
+  [SHKFacebook shareItem:fbItem];
+}
+
+-(void)shareOnTwitter:(id)sender {
+  //take screenshot
+  NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
+  
+  SHKItem *twitterItem = [SHKItem text:url];
+  [SHKTwitter shareItem:twitterItem];
+}
+
 
 @end

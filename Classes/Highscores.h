@@ -9,6 +9,10 @@
 	NSMutableArray *highscores;
 	UIAlertView *changePlayerAlert;
 	UITextField *changePlayerTextField;
+  UIViewController *vc;
+
 }
+@property(nonatomic, assign) UIViewController *vc;
+
 - (id)initWithScore:(int)lastScore;
 @end
