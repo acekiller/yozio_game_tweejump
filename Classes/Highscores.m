@@ -76,6 +76,8 @@
 		if(count == 5) break;
 	}
 
+  [SHK setRootViewController:vc];
+
 	MenuItem *button1 = [MenuItemImage itemFromNormalImage:@"playAgainButton.png" selectedImage:@"playAgainButton.png" target:self selector:@selector(button1Callback:)];
   MenuItem *fb = [MenuItemImage itemFromNormalImage:@"facebook.png"
                                       selectedImage:@"facebook.png"
@@ -98,7 +100,10 @@
   
   
   
-  
+  self.vc =[[UIViewController alloc] init];
+  [[[Director sharedDirector] openGLView] addSubview:vc.view];
+  [[SHK currentHelper] setRootViewController:vc];
+
   
   
   
@@ -275,14 +280,6 @@
 		// nothing
 	}
 }
-//
-//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-//	NSLog(@"textFieldShouldReturn");
-//	[changePlayerAlert dismissWithClickedButtonIndex:0 animated:YES];
-//	[self changePlayerDone];
-//	return YES;
-//}
-
 
 -(void)shareOnFacebook:(id)sender {
   NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
@@ -292,7 +289,8 @@
 }
 
 -(void)shareOnTwitter:(id)sender {
-  //take screenshot
+[SHK setRootViewController:vc];
+  
   NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
   
   SHKItem *twitterItem = [SHKItem text:url];

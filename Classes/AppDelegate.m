@@ -8,6 +8,10 @@
 #import "SoundEffect.h"
 #import "Bird.h"
 #import "Highscores.h"
+#import "ShareKitDemoConfigurator.h"
+#import "SHKFacebook.h"
+#import "SHKConfiguration.h"
+
 
 @implementation AppDelegate
 
@@ -16,8 +20,18 @@
   //	[window setMultipleTouchEnabled:YES];	
   [Yozio configure:@"ca2e6ac0-d2d4-012f-2c29-12314000ac7c" secretKey:@"ca2e73c0-d2d4-012f-2c2a-12314000ac7c"];
   [Yozio initializeExperiments];
-	[[Director sharedDirector] setPixelFormat:kRGBA8];
 	
+  
+  
+  //initialize sharekit
+  DefaultSHKConfigurator *configurator = [[ShareKitDemoConfigurator alloc] init];
+  [SHKConfiguration sharedInstanceWithConfigurator:configurator];
+  [configurator release];
+
+  [[Director sharedDirector] setPixelFormat:kRGBA8];
+	
+  
+  
   //	[[Director sharedDirector] setDisplayFPS:YES];
 	[[Director sharedDirector] setAnimationInterval:1.0/kFPS];
   
@@ -81,5 +95,29 @@
 - (void)applicationSignificantTimeChange:(UIApplication*)application {
 	[[Director sharedDirector] setNextDeltaTimeZero:YES];
 }
+
+
+// For facebook SSO using sharekit
+- (BOOL)handleOpenURL:(NSURL*)url
+{
+  NSString* scheme = [url scheme];
+  NSString* prefix = [NSString stringWithFormat:@"fb%@", SHKCONFIG(facebookAppId)];
+  if ([scheme hasPrefix:prefix])
+    return [SHKFacebook handleOpenURL:url];
+  return YES;
+}
+
+// For facebook SSO using sharekit
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+  return [self handleOpenURL:url];
+}
+
+// For facebook SSO using sharekit
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+  return [self handleOpenURL:url];
+}
+
 
 @end
