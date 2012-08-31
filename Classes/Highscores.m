@@ -282,7 +282,8 @@
 }
 
 -(void)shareOnFacebook:(id)sender {
-  NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
+  [Yozio viewedLink:@"facebook sharing"];
+  NSString* url = [Yozio getUrl:@"facebook sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
   
   SHKItem *fbItem = [SHKItem text:url];
   [SHKFacebook shareItem:fbItem];
@@ -291,6 +292,7 @@
 -(void)shareOnTwitter:(id)sender {
 [SHK setRootViewController:vc];
   
+  [Yozio viewedLink:@"twitter sharing"];
   NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
   
   SHKItem *twitterItem = [SHKItem text:url];

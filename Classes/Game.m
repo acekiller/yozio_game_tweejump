@@ -23,13 +23,6 @@
 
 - (id)init {
   
-  [Yozio viewedLink:@"twitter sharing"];
-  
-  NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/app/id123"];
-
-  NSLog(@"url %@", url);
-  [Yozio sharedLink:@"twitter sharing"];
-
 	NSLog(@"Game::init");
   
 	if(![super init]) return nil;
