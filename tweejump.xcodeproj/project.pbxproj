@@ -134,34 +134,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F75BCEB015ED7DF200208E1F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F75BCEA915ED7DF200208E1F /* ShareKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
-			remoteInfo = "Demo App";
-		};
-		F75BCEB215ED7DF200208E1F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F75BCEA915ED7DF200208E1F /* ShareKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7AB5342E1552AADD00171BCE;
-			remoteInfo = "Static Library";
-		};
-		F75BCEB415ED7DF200208E1F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F75BCEA915ED7DF200208E1F /* ShareKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7AB5360F1552E26800171BCE;
-			remoteInfo = "Resource Bundle";
-		};
-		F75BCEB615ED7DF200208E1F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F75BCEA915ED7DF200208E1F /* ShareKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7A0F9246156BA2A0009CB40A;
-			remoteInfo = "Static Library No Submodules";
-		};
 		F797437C15ED4275004147A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F797437115ED4274004147A7 /* ShareKit.xcodeproj */;
@@ -190,19 +162,33 @@
 			remoteGlobalIDString = 7A0F9246156BA2A0009CB40A;
 			remoteInfo = "Static Library No Submodules";
 		};
-		F797438515ED4292004147A7 /* PBXContainerItemProxy */ = {
+		F7B9BFDB15F6C9FF00DA5631 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F797437115ED4274004147A7 /* ShareKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 7AB5342D1552AADD00171BCE;
+			containerPortal = F7B9BFD015F6C9FF00DA5631 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
+			remoteInfo = "Demo App";
+		};
+		F7B9BFDD15F6C9FF00DA5631 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7B9BFD015F6C9FF00DA5631 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AB5342E1552AADD00171BCE;
 			remoteInfo = "Static Library";
 		};
-		F797438715ED4292004147A7 /* PBXContainerItemProxy */ = {
+		F7B9BFDF15F6C9FF00DA5631 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F797437115ED4274004147A7 /* ShareKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 7AB5360E1552E26800171BCE;
+			containerPortal = F7B9BFD015F6C9FF00DA5631 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AB5360F1552E26800171BCE;
 			remoteInfo = "Resource Bundle";
+		};
+		F7B9BFE115F6C9FF00DA5631 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7B9BFD015F6C9FF00DA5631 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A0F9246156BA2A0009CB40A;
+			remoteInfo = "Static Library No Submodules";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -392,7 +378,6 @@
 		F75BCE9515ED76F300208E1F /* Yozio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yozio.h; sourceTree = "<group>"; };
 		F75BCE9615ED76F300208E1F /* Yozio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yozio.m; sourceTree = "<group>"; };
 		F75BCE9715ED76F300208E1F /* Yozio_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yozio_Private.h; sourceTree = "<group>"; };
-		F75BCEA915ED7DF200208E1F /* ShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShareKit.xcodeproj; path = Submodules/ShareKit/ShareKit.xcodeproj; sourceTree = "<group>"; };
 		F75BCEB815ED80EB00208E1F /* ShareKitDemoConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareKitDemoConfigurator.h; sourceTree = "<group>"; };
 		F75BCEB915ED80EB00208E1F /* ShareKitDemoConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareKitDemoConfigurator.m; sourceTree = "<group>"; };
 		F75BCEBB15ED959A00208E1F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -405,6 +390,7 @@
 		F79743A315ED5604004147A7 /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
 		F79743A515ED58E1004147A7 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = Images/facebook.png; sourceTree = "<group>"; };
 		F79743A615ED58E1004147A7 /* twitterlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitterlogo.png; path = Images/twitterlogo.png; sourceTree = "<group>"; };
+		F7B9BFD015F6C9FF00DA5631 /* ShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShareKit.xcodeproj; path = ShareKit/ShareKit.xcodeproj; sourceTree = "<group>"; };
 		F7F8714A14D61ADA00BEA775 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F7F8715114D61BEE00BEA775 /* Recording.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Recording.data; sourceTree = "<group>"; };
 		F7F8715214D61BEE00BEA775 /* Select.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Select.caf; sourceTree = "<group>"; };
@@ -488,7 +474,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				F75BCEA915ED7DF200208E1F /* ShareKit.xcodeproj */,
+				F7B9BFD015F6C9FF00DA5631 /* ShareKit.xcodeproj */,
 				F75BCE6B15ED76F300208E1F /* Yozio */,
 				F7F8716314D62A6C00BEA775 /* AVFoundation.framework */,
 				F7F8714A14D61ADA00BEA775 /* AudioToolbox.framework */,
@@ -826,17 +812,6 @@
 			path = api;
 			sourceTree = "<group>";
 		};
-		F75BCEAA15ED7DF200208E1F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F75BCEB115ED7DF200208E1F /* ShareKitDemo.app */,
-				F75BCEB315ED7DF200208E1F /* libShareKit.a */,
-				F75BCEB515ED7DF200208E1F /* ShareKit.bundle */,
-				F75BCEB715ED7DF200208E1F /* libShareKitNoSubmodules.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		F797437215ED4274004147A7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +819,17 @@
 				F797437F15ED4275004147A7 /* libShareKit.a */,
 				F797438115ED4275004147A7 /* ShareKit.bundle */,
 				F797438315ED4275004147A7 /* libShareKitNoSubmodules.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7B9BFD115F6C9FF00DA5631 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7B9BFDC15F6C9FF00DA5631 /* ShareKitDemo.app */,
+				F7B9BFDE15F6C9FF00DA5631 /* libShareKit.a */,
+				F7B9BFE015F6C9FF00DA5631 /* ShareKit.bundle */,
+				F7B9BFE215F6C9FF00DA5631 /* libShareKitNoSubmodules.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -862,8 +848,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				F797438615ED4292004147A7 /* PBXTargetDependency */,
-				F797438815ED4292004147A7 /* PBXTargetDependency */,
 			);
 			name = tweejump;
 			productName = tweejump;
@@ -889,8 +873,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = F75BCEAA15ED7DF200208E1F /* Products */;
-					ProjectRef = F75BCEA915ED7DF200208E1F /* ShareKit.xcodeproj */;
+					ProductGroup = F7B9BFD115F6C9FF00DA5631 /* Products */;
+					ProjectRef = F7B9BFD015F6C9FF00DA5631 /* ShareKit.xcodeproj */;
 				},
 				{
 					ProductGroup = F797437215ED4274004147A7 /* Products */;
@@ -905,34 +889,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		F75BCEB115ED7DF200208E1F /* ShareKitDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = ShareKitDemo.app;
-			remoteRef = F75BCEB015ED7DF200208E1F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F75BCEB315ED7DF200208E1F /* libShareKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libShareKit.a;
-			remoteRef = F75BCEB215ED7DF200208E1F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F75BCEB515ED7DF200208E1F /* ShareKit.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ShareKit.bundle;
-			remoteRef = F75BCEB415ED7DF200208E1F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F75BCEB715ED7DF200208E1F /* libShareKitNoSubmodules.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libShareKitNoSubmodules.a;
-			remoteRef = F75BCEB615ED7DF200208E1F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		F797437D15ED4275004147A7 /* ShareKitDemo.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -959,6 +915,34 @@
 			fileType = archive.ar;
 			path = libShareKitNoSubmodules.a;
 			remoteRef = F797438215ED4275004147A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7B9BFDC15F6C9FF00DA5631 /* ShareKitDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ShareKitDemo.app;
+			remoteRef = F7B9BFDB15F6C9FF00DA5631 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7B9BFDE15F6C9FF00DA5631 /* libShareKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libShareKit.a;
+			remoteRef = F7B9BFDD15F6C9FF00DA5631 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7B9BFE015F6C9FF00DA5631 /* ShareKit.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ShareKit.bundle;
+			remoteRef = F7B9BFDF15F6C9FF00DA5631 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7B9BFE215F6C9FF00DA5631 /* libShareKitNoSubmodules.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libShareKitNoSubmodules.a;
+			remoteRef = F7B9BFE115F6C9FF00DA5631 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1088,19 +1072,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F797438615ED4292004147A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Static Library";
-			targetProxy = F797438515ED4292004147A7 /* PBXContainerItemProxy */;
-		};
-		F797438815ED4292004147A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Resource Bundle";
-			targetProxy = F797438715ED4292004147A7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {

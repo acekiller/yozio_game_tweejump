@@ -102,6 +102,9 @@
 {
   NSString* scheme = [url scheme];
   NSString* prefix = [NSString stringWithFormat:@"fb%@", SHKCONFIG(facebookAppId)];
+  NSLog(@"scheme: %@", scheme);
+  NSLog(@"prefix: %@", prefix);
+  NSLog(@"url: %@", url);
   if ([scheme hasPrefix:prefix])
     return [SHKFacebook handleOpenURL:url];
   return YES;
