@@ -23,6 +23,11 @@
 
 - (id)init {
   
+//  
+//  NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/app/id123"];
+//
+//  NSLog(@"url %@", url);
+
 	NSLog(@"Game::init");
   
 	if(![super init]) return nil;
@@ -52,7 +57,7 @@
     AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(795,57,828-795,120-65) spriteManager:spriteManager];
     NSLog(@"bird.parent %@", bird.parent);
     [spriteManager addChild:bird z:4 tag:kBird];
-  } else if ([birdType getType] == @"mittromney"){
+  } else if ([birdType getType] == @"mittromney" || [[Yozio stringForKey:@"characterStartType" defaultValue:@"default"] isEqualToString:@"mittromney"]){
     AtlasSprite *bird = [AtlasSprite spriteWithRect:CGRectMake(730,67,767-730,120-65) spriteManager:spriteManager];
     NSLog(@"bird.parent %@", bird.parent);
     [spriteManager addChild:bird z:4 tag:kBird];
@@ -385,8 +390,8 @@
 }
 
 - (void)jump {
-	bird_vel.y = 350.0f;
-//  	bird_vel.y = 350.0f + fabsf(bird_vel.x);
+//  bird_vel.x = 3000.0f;
+	bird_vel.y = 350.0f + fabsf(bird_vel.x);
 }
 
 - (void)showHighscores {

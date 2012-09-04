@@ -79,6 +79,7 @@
   [SHK setRootViewController:vc];
 
 	MenuItem *button1 = [MenuItemImage itemFromNormalImage:@"playAgainButton.png" selectedImage:@"playAgainButton.png" target:self selector:@selector(button1Callback:)];
+
   MenuItem *fb = [MenuItemImage itemFromNormalImage:@"facebook.png"
                                       selectedImage:@"facebook.png"
                                              target:self
@@ -282,20 +283,25 @@
 }
 
 -(void)shareOnFacebook:(id)sender {
-  [Yozio viewedLink:@"facebook sharing"];
   NSString* url = [Yozio getUrl:@"facebook sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
-  
-  SHKItem *fbItem = [SHKItem text:url];
+
+  NSString *wallPostText = [Yozio stringForKey:@"facebookText" defaultValue:@"Addicted To Tweejump (FB default): "];
+
+  SHKItem *fbItem = [SHKItem text:[wallPostText stringByAppendingString:url]];
+  [Yozio viewedLink:@"facebook sharing"];
+
   [SHKFacebook shareItem:fbItem];
 }
 
 -(void)shareOnTwitter:(id)sender {
-[SHK setRootViewController:vc];
+  [SHK setRootViewController:vc];
+  NSString* url2 = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
   
+  NSString *tweetText = [Yozio stringForKey:@"twitterText" defaultValue:@"Addicted to Tweejump (T default): "];
+
+  SHKItem *twitterItem = [SHKItem text:[tweetText stringByAppendingString:url2]];
   [Yozio viewedLink:@"twitter sharing"];
-  NSString* url = [Yozio getUrl:@"twitter sharing" destinationUrl:@"http://itunes.apple.com/us/app/mobli-share-photos-videos!/id426679976?mt=8"];
-  
-  SHKItem *twitterItem = [SHKItem text:url];
+
   [SHKTwitter shareItem:twitterItem];
 }
 
